@@ -4,7 +4,7 @@ Copyright (c) 2025 Manticore Technologies
 MIT License - See LICENSE file for details
 """
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 __author__ = "Manticore Technologies"
 __email__ = "dev@manticore.tech"
 

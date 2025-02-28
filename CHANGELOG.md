@@ -41,7 +41,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Historical blockchain data analysis for establishing statistical baselines
 - Advanced order and transaction lifecycle management
 
-## [1.2.0] - 2024-03-01
+## [1.2.1] - 2025-03-02
+
+### Added
+- Comprehensive documentation with MkDocs
+- Improved WebSockets support
+- Enhanced asset swap platform examples
+- Fixed package distribution issues
+
+### Changed
+- Updated dependencies to latest versions
+- Improved error handling in WebSocket connections
+- Better documentation for all components
+
+## [1.2.0] - 2025-03-01
 
 ### Added
 - WebSockets support for real-time blockchain events:
@@ -64,7 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced error handling and logging
 - Better type hints and docstrings
 
-## [1.1.0] - 2024-02-19
+## [1.1.0] - 2025-02-19
 
 ### Added
 - ZMQ support for real-time blockchain notifications
@@ -84,7 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced documentation with ZMQ examples
 - Better package organization
 
-## [1.0.2] - 2024-02-18
+## [1.0.2] - 2025-02-18
 
 ### Changed
 - Renamed package to `evrmore-rpc` on PyPI while keeping `evrmore_rpc` as the Python module name
@@ -103,7 +116,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configuration loading edge cases
 - Error messages and logging format
 
-## [1.0.1] - 2024-02-16
+## [1.0.1] - 2025-02-16
 
 ### Added
 - Initial release with basic RPC functionality

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="evrmore-rpc",
-    version="1.2.0",  # Incrementing version for new features
+    version="1.2.1",  # Incrementing version for new features
     author="Manticore Technologies",
     author_email="dev@manticore.tech",
     description="A comprehensive, typed Python wrapper for Evrmore blockchain with ZMQ and WebSockets support",

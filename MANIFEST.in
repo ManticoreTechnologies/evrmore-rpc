@@ -1,0 +1,41 @@
+# Include package files
+include evrmore_rpc/*.py
+include evrmore_rpc/models/*.py
+include evrmore_rpc/models/blockchain/*.py
+include evrmore_rpc/models/wallet/*.py
+include evrmore_rpc/commands/*.py
+include evrmore_rpc/zmq/*.py
+include evrmore_rpc/websockets/*.py
+
+# Include documentation
+include README.md
+include LICENSE
+include CHANGELOG.md
+include docs/*.md
+include mkdocs.yml
+
+# Include examples
+include examples/*.py
+include examples/README.md
+include examples/*/*.py
+include examples/*/README.md
+
+# Include test files
+include tests/*.py
+include tests/data/*.json
+include pytest.ini
+
+# Include configuration files
+include pyproject.toml
+include setup.py
+include MANIFEST.in
+
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.pyo
+global-exclude .DS_Store
+global-exclude *.db
+global-exclude *.sqlite
+global-exclude *.sqlite3
+global-exclude .pytest_cache
+global-exclude .coverage

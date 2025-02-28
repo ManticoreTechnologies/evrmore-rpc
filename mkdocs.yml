@@ -1,0 +1,66 @@
+site_name: Evrmore RPC
+site_description: A comprehensive, typed Python wrapper for Evrmore blockchain with ZMQ and WebSockets support
+site_author: Manticore Technology
+site_url: https://manticoretechnology.github.io/evrmore-rpc/
+
+repo_name: ManticoreTechnology/evrmore-rpc
+repo_url: https://github.com/ManticoreTechnology/evrmore-rpc
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - API Reference:
+    - Synchronous API: sync_api.md
+    - Asynchronous API: async_api.md
+    - ZMQ Support: zmq.md
+    - WebSockets Support: websockets.md
+    - Models: models.md
+  - Examples: examples.md
+  - Advanced Usage: advanced.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          selection:
+            docstring_style: google
+          rendering:
+            show_source: true
+            show_root_heading: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ManticoreTechnology/evrmore-rpc
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/evrmore-rpc/
+
+copyright: Copyright &copy; 2024 Manticore Technology 

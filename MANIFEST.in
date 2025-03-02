@@ -3,9 +3,6 @@ include evrmore_rpc/*.py
 include evrmore_rpc/models/*.py
 include evrmore_rpc/models/blockchain/*.py
 include evrmore_rpc/models/wallet/*.py
-include evrmore_rpc/commands/*.py
-include evrmore_rpc/zmq/*.py
-include evrmore_rpc/websockets/*.py
 
 # Include documentation
 include README.md
@@ -29,6 +26,7 @@ include pytest.ini
 include pyproject.toml
 include setup.py
 include MANIFEST.in
+include requirements.txt
 
 global-exclude *.pyc
 global-exclude __pycache__

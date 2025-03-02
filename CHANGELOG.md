@@ -1,125 +1,139 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [Unreleased]
+## 3.2.1 (2024-05-15)
 
 ### Added
-- Full WebSockets support:
-  - `EvrmoreWebSocketClient` for connecting to WebSocket servers
-  - `EvrmoreWebSocketServer` for broadcasting blockchain events
-  - Comprehensive data models for WebSocket messages
-  - Real-time block and transaction notifications
-  - Interactive dashboard example
-  - WebSocket simulator for testing
-  - Unit tests for WebSockets functionality
-- Full async/await support via new EvrmoreAsyncRPCClient
-- Parallel request execution with asyncio.gather
-- Async context manager support
-- Examples demonstrating async usage
-- Tests for async functionality
-- Documentation for async API
-- New `balance_tracker` example for NFT exchange integration:
-  - Complete SQLite database integration for tracking balances and orders
-  - RESTful API example with FastAPI for NFT exchange backend
-  - Transaction and order status tracking with real-time updates
-- Advanced blockchain analytics capabilities:
-  - Transaction pattern recognition system for identifying specific transaction types
-  - Statistical anomaly detection for unusual blockchain activities
-  - Machine learning integration for transaction analysis (via scikit-learn)
-  - Z-score based transaction value analysis
-- Real-time WebSocket support for live dashboard updates
-- Comprehensive pattern matching:
-  - Asset type pattern detection
-  - Value-based transaction filtering
-  - Address pattern recognition
-  - Multi-input/output analysis
-- Interactive rich console visualization with live updates
-- Historical blockchain data analysis for establishing statistical baselines
-- Advanced order and transaction lifecycle management
-
-## [1.2.1] - 2025-03-02
-
-### Added
-- Comprehensive documentation with MkDocs
-- Improved WebSockets support
-- Enhanced asset swap platform examples
-- Fixed package distribution issues
+- Seamless API that works in both synchronous and asynchronous contexts without context managers
+- `reset()` method to reset client state when switching between sync and async contexts
+- `force_sync()` and `force_async()` methods to explicitly set the mode
+- Improved resource management with `__del__` method and explicit `close()` methods
+- New examples demonstrating the seamless API
+- Comprehensive test suite for all components
+- Fixed test suite for EvrmoreClient and EvrmoreConfig classes
+- Improved async test mocking
+- Enhanced publication check script
 
 ### Changed
-- Updated dependencies to latest versions
-- Improved error handling in WebSocket connections
-- Better documentation for all components
+- Simplified codebase by consolidating functionality into a single client class
+- Improved auto-detection of execution context
+- Updated documentation to focus on the seamless API
+- Streamlined examples to demonstrate best practices
+- Improved resource management in client implementations
+- Better error handling in configuration parsing
 
-## [1.2.0] - 2025-03-01
+### Removed
+- Deprecated client implementations
+- Unnecessary command modules
+- Redundant examples
 
-### Added
-- WebSockets support for real-time blockchain events:
-  - Client for connecting to WebSocket servers
-  - Server for broadcasting blockchain events
-  - Data models for WebSocket messages
-  - Examples demonstrating WebSockets usage
-  - Interactive dashboard for monitoring blockchain activity
-  - WebSocket simulator for testing without a real node
-- Enhanced async/await support:
-  - Improved error handling and reconnection logic
-  - Better performance with parallel requests
-  - More comprehensive examples
-- Updated documentation with WebSockets examples
-- Improved test coverage
-
-### Changed
-- Updated dependencies to latest versions
-- Improved package organization with dedicated directories for components
-- Enhanced error handling and logging
-- Better type hints and docstrings
-
-## [1.1.0] - 2025-02-19
+## 3.1.0 (2024-02-15)
 
 ### Added
-- ZMQ support for real-time blockchain notifications
-- New examples demonstrating ZMQ and RPC usage:
-  - Blockchain explorer
-  - Asset monitor
-  - Wallet tracker
-  - Network monitor
-  - Reward distributor
-- Improved error handling and logging
-- Better type hints and docstrings
-- Optional development dependencies
+- Auto-detection of execution context
+- Support for both synchronous and asynchronous usage
+- Comprehensive type annotations
+- Pydantic models for common RPC responses
+- Integrated stress testing tools
+- Seamless API for both sync and async usage without context managers
+- Improved connection pooling
+- Stress testing tools
 
 ### Changed
-- Updated dependencies to latest versions
-- Improved async/await support
+- Improved error handling
+- Enhanced documentation
+- Optimized performance
+- Simplified client usage pattern
+- Better error handling
+
+## 3.0.0 (2024-01-01)
+
+### Added
+- Initial release of the rewritten evrmore-rpc library
+- Support for all Evrmore RPC commands
+- Asynchronous API
+- Automatic configuration from evrmore.conf
+- Connection pooling
+- Type hints
+
+## [2.0.0] - 2025-01-01
+
+### Major Changes
+
+- **Async-Only Architecture**: Completely redesigned the library to be async-only for maximum performance
+- **Simplified Codebase**: Removed all synchronous code for a smaller, more focused library
+- **Enhanced Concurrency**: Improved concurrency handling for better performance
+- **Reduced Dependencies**: Removed requests dependency, now only requires aiohttp
+
+### Added
+
+- Improved error handling for async operations
+- Better connection pooling for persistent connections
+- Enhanced concurrency control in stress testing
+
+### Removed
+
+- All synchronous code and clients
+- Requests dependency
+
+## [1.4.0] - 2024-12-15
+
+### Added
+
+- Modular architecture with base client class
+- Command factory for generating command wrappers
+- Unified response handling
+- Improved type hints
+
+### Changed
+
+- Refactored direct and async clients to inherit from base client
+- Updated blockchain commands to use command factory
+- Enhanced documentation with architecture details
+
+## [1.3.0] - 2024-11-30
+
+### Added
+
+- WebSockets support for real-time blockchain notifications
+- WebSocket server for proxying blockchain events
+- Additional examples for WebSockets usage
+
+### Changed
+
+- Improved ZMQ client with better error handling
+- Enhanced documentation with WebSockets examples
+
+## [1.2.0] - 2024-10-15
+
+### Added
+
+- ZMQ support for subscribing to blockchain events
+- Examples for ZMQ usage
+- Performance comparison examples
+
+### Changed
+
+- Improved error handling in direct clients
 - Enhanced documentation with ZMQ examples
-- Better package organization
 
-## [1.0.2] - 2025-02-18
+## [1.1.0] - 2024-09-01
+
+### Added
+
+- Direct RPC clients for better performance
+- Asynchronous support for concurrent operations
+- Configuration management with automatic parsing of evrmore.conf
+- Comprehensive examples directory
 
 ### Changed
-- Renamed package to `evrmore-rpc` on PyPI while keeping `evrmore_rpc` as the Python module name
-- Improved ZMQ module with better documentation and examples
-- Enhanced error handling and logging
-- Updated dependencies to latest versions
+
+- Improved error handling
+- Enhanced documentation
+
+## [1.0.0] - 2024-08-01
 
 ### Added
-- Comprehensive ZMQ module documentation
-- Integration examples for blockchain explorer and wallet monitoring
-- Better type hints and docstrings
-- Command-line interface for ZMQ testing
 
-### Fixed
-- ZMQ notification handling and validation
-- Configuration loading edge cases
-- Error messages and logging format
-
-## [1.0.1] - 2025-02-16
-
-### Added
-- Initial release with basic RPC functionality
-- ZMQ support for real-time notifications
-- Comprehensive model validation
+- Initial release with CLI-based client
+- Support for all Evrmore RPC commands
 - Basic documentation 

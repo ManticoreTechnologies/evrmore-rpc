@@ -1,5 +1,5 @@
 site_name: Evrmore RPC
-site_description: A comprehensive, typed Python wrapper for Evrmore blockchain with ZMQ and WebSockets support
+site_description: A high-performance Python wrapper for Evrmore blockchain RPC commands with a seamless API
 site_author: Manticore Technology
 site_url: https://manticoretechnology.github.io/evrmore-rpc/
 
@@ -39,8 +39,6 @@ nav:
   - API Reference:
     - Synchronous API: sync_api.md
     - Asynchronous API: async_api.md
-    - ZMQ Support: zmq.md
-    - WebSockets Support: websockets.md
     - Models: models.md
   - Examples: examples.md
   - Advanced Usage: advanced.md

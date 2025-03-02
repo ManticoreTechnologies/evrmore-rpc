@@ -3,7 +3,9 @@ from pydantic import BaseModel, Field
 from decimal import Decimal
 
 class Amount(BaseModel):
-    """Model for representing EVR amounts"""
+    """Model for representing EVR amounts
+       The maximum precision is 8 decimal places
+    """
     value: Decimal = Field(..., description="Amount in EVR")
     
 class Address(BaseModel):

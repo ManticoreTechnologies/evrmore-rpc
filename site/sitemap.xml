@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/advanced/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/async_api/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/examples/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/models/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/sync_api/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/websockets/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
          <loc>https://manticoretechnology.github.io/evrmore-rpc/zmq/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-02</lastmod>
     </url>
 </urlset>

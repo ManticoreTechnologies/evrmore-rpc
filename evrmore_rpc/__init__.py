@@ -1,76 +1,87 @@
 """
-evrmore-rpc: A comprehensive, typed Python wrapper for Evrmore blockchain with ZMQ and WebSockets support
+evrmore-rpc: A streamlined, high-performance Python wrapper for Evrmore blockchain
 Copyright (c) 2025 Manticore Technologies
 MIT License - See LICENSE file for details
+
+This library provides a polymorphic client that can be used both synchronously and asynchronously
+with the same API. The client automatically detects the context (sync or async) and adapts accordingly.
 """
 
-__version__ = "1.2.1"
-__author__ = "Manticore Technologies"
-__email__ = "dev@manticore.tech"
+__version__ = "3.2.1"
 
-from evrmore_rpc.client import EvrmoreRPCClient, EvrmoreRPCError
-from evrmore_rpc.async_client import EvrmoreAsyncRPCClient
-from evrmore_rpc.models.base import (
-    Amount,
-    Address,
-    Asset,
-    Transaction,
-    Block,
-    RPCResponse
+from evrmore_rpc.client import (
+    EvrmoreClient,
+    EvrmoreConfig,
+    EvrmoreRPCError
 )
-from evrmore_rpc.utils import (
-    format_amount,
-    validate_response,
-    validate_list_response,
-    validate_dict_response,
-    format_command_args
-)
-from evrmore_rpc.zmq.client import EvrmoreZMQClient
 
-# Import WebSockets support if available
-try:
-    from evrmore_rpc.websockets.client import EvrmoreWebSocketClient
-    from evrmore_rpc.websockets.server import EvrmoreWebSocketServer
-    from evrmore_rpc.websockets.models import WebSocketMessage
-    __has_websockets__ = True
-except ImportError:
-    __has_websockets__ = False
+# Import common models
+from evrmore_rpc.models import (
+    # Base models
+    Amount, Address, Asset, Transaction, BaseBlock, RPCResponse,
+    
+    # Blockchain models
+    BlockchainInfo, Block, BlockHeader, ChainTip, MempoolInfo, 
+    TxOut, TxOutSetInfo,
+    
+    # Asset models
+    AssetInfo, AssetData, CacheInfo, ListAssetResult,
+    
+    # Network models
+    NetworkInfo, PeerInfo, LocalAddress, Network,
+    
+    # Mining models
+    MiningInfo, MiningStats,
+    
+    # Address index models
+    AddressBalance, AddressDelta, AddressUtxo, AddressMempool,
+    
+    # Raw transaction models
+    DecodedTransaction, DecodedScript, TransactionInput, TransactionOutput,
+    
+    # Wallet models
+    WalletInfo, WalletTransaction, UnspentOutput
+)
+
+# Import stress_test function directly for easy access
+from evrmore_rpc.stress_test import run_stress_test as stress_test
+
+# Default Evrmore data directory
+from pathlib import Path
+DEFAULT_DATADIR = Path.home() / ".evrmore"
 
 __all__ = [
-    # Core clients
-    "EvrmoreRPCClient",
+    # Client classes
+    "EvrmoreClient",
+    "EvrmoreConfig",
     "EvrmoreRPCError",
-    "EvrmoreAsyncRPCClient",
     
-    # Models
-    "Amount",
-    "Address",
-    "Asset",
-    "Transaction",
-    "Block",
-    "RPCResponse",
+    # Base models
+    "Amount", "Address", "Asset", "Transaction", "BaseBlock", "RPCResponse",
     
-    # Utilities
-    "format_amount",
-    "validate_response",
-    "validate_list_response",
-    "validate_dict_response",
-    "format_command_args",
+    # Blockchain models
+    "BlockchainInfo", "Block", "BlockHeader", "ChainTip", "MempoolInfo", 
+    "TxOut", "TxOutSetInfo",
     
-    # ZMQ support
-    "EvrmoreZMQClient",
+    # Asset models
+    "AssetInfo", "AssetData", "CacheInfo", "ListAssetResult",
     
-    # Version info
-    "__version__",
-    "__author__",
-    "__email__",
-    "__has_websockets__",
-]
-
-# Add WebSockets exports if available
-if __has_websockets__:
-    __all__.extend([
-        "EvrmoreWebSocketClient",
-        "EvrmoreWebSocketServer",
-        "WebSocketMessage",
-    ]) 
+    # Network models
+    "NetworkInfo", "PeerInfo", "LocalAddress", "Network",
+    
+    # Mining models
+    "MiningInfo", "MiningStats",
+    
+    # Address index models
+    "AddressBalance", "AddressDelta", "AddressUtxo", "AddressMempool",
+    
+    # Raw transaction models
+    "DecodedTransaction", "DecodedScript", "TransactionInput", "TransactionOutput",
+    
+    # Wallet models
+    "WalletInfo", "WalletTransaction", "UnspentOutput",
+    
+    # Utility functions
+    "DEFAULT_DATADIR",
+    "stress_test",
+] 

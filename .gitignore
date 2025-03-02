@@ -57,3 +57,6 @@ logs/
 
 # PyPI configuration
 .pypirc
+
+# Project specific
+balance_tracker.db

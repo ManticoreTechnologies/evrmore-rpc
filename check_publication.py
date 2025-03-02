@@ -15,24 +15,55 @@ from pathlib import Path
 def check_version_consistency():
     """Check that version numbers are consistent across files."""
     version_files = {
-        "setup.py": r"version=['\"]([^'\"]+)['\"]",
+        "setup.py": r"version\s*=\s*version",
         "pyproject.toml": r"version\s*=\s*['\"]([^'\"]+)['\"]",
         "evrmore_rpc/__init__.py": r"__version__\s*=\s*['\"]([^'\"]+)['\"]",
     }
     
     versions = {}
+    # First get the version from __init__.py as it's the source of truth
+    init_file = "evrmore_rpc/__init__.py"
+    init_pattern = version_files[init_file]
+    
+    if os.path.exists(init_file):
+        with open(init_file, 'r') as f:
+            content = f.read()
+            match = re.search(init_pattern, content)
+            if match:
+                versions[init_file] = match.group(1)
+            else:
+                print(f"WARNING: Version not found in {init_file}")
+                return False
+    else:
+        print(f"ERROR: {init_file} not found")
+        return False
+    
+    # Check other files
     for file_path, pattern in version_files.items():
+        if file_path == init_file:
+            continue  # Already processed
+            
         if not os.path.exists(file_path):
             print(f"WARNING: {file_path} not found")
             continue
             
         with open(file_path, 'r') as f:
             content = f.read()
-            match = re.search(pattern, content)
-            if match:
-                versions[file_path] = match.group(1)
+            
+            if file_path == "setup.py":
+                # For setup.py, just check if the pattern exists
+                if re.search(pattern, content):
+                    # Assume it's using the version from __init__.py
+                    versions[file_path] = versions[init_file]
+                else:
+                    print(f"WARNING: Version reference not found in {file_path}")
             else:
-                print(f"WARNING: Version not found in {file_path}")
+                # For other files, extract the version
+                match = re.search(pattern, content)
+                if match:
+                    versions[file_path] = match.group(1)
+                else:
+                    print(f"WARNING: Version not found in {file_path}")
     
     if len(set(versions.values())) > 1:
         print("ERROR: Inconsistent versions found:")

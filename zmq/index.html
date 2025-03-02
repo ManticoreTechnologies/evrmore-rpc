@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A comprehensive, typed Python wrapper for Evrmore blockchain with ZMQ and WebSockets support">
+        <meta name="description" content="A high-performance Python wrapper for Evrmore blockchain RPC commands with a seamless API">
       
       
         <meta name="author" content="Manticore Technology">
@@ -15,10 +15,6 @@
         <link rel="canonical" href="https://manticoretechnology.github.io/evrmore-rpc/zmq/">
       
       
-        <link rel="prev" href="../async_api/">
-      
-      
-        <link rel="next" href="../websockets/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -213,12 +209,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../sync_api/" class="md-tabs__link">
           
   
@@ -334,30 +328,27 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -369,7 +360,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -410,280 +401,6 @@
   
   <span class="md-ellipsis">
     Asynchronous API
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    ZMQ Support
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    ZMQ Support
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evrmore-node-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Evrmore Node Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evrmorezmqclient" class="md-nav__link">
-    <span class="md-ellipsis">
-      EvrmoreZMQClient
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="EvrmoreZMQClient">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Usage
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#initialization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Initialization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#zmqtopic-enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      ZMQTopic Enum
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#registering-handlers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Registering Handlers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#zmqnotification-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      ZMQNotification Object
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#starting-and-stopping" class="md-nav__link">
-    <span class="md-ellipsis">
-      Starting and Stopping
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#async-context-manager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Async Context Manager
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced Usage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#custom-zmq-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      Custom ZMQ Context
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-handlers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multiple Handlers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error Handling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#integration-with-websockets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with WebSockets
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zmq-utilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      ZMQ Utilities
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ZMQ Utilities">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transaction-utilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transaction Utilities
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#block-utilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Block Utilities
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../websockets/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    WebSockets Support
     
   </span>
   

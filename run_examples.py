@@ -26,6 +26,18 @@ EXAMPLES = {
     ],
 }
 
+# Simplified names for easier access
+SIMPLIFIED_NAMES = {
+    "super_simple": "super_simple.py",
+    "seamless_api": "seamless_api.py",
+    "simple_auto_detect": "simple_auto_detect.py",
+    "asset_monitor": "asset_monitor/monitor.py",
+    "blockchain_explorer": "blockchain_explorer/explorer.py",
+    "network_monitor": "network_monitor/monitor.py",
+    "wallet_tracker": "wallet_tracker/tracker.py",
+    "asset_swap": "asset_swap/simple_swap.py",
+}
+
 def main():
     # Parse arguments
     parser = argparse.ArgumentParser(description="Run Evrmore RPC examples")
@@ -42,19 +54,26 @@ def main():
         print("\nAdvanced examples:")
         for example in EXAMPLES["advanced"]:
             print(f"  {example}")
+        print("\nSimplified names:")
+        for name, path in SIMPLIFIED_NAMES.items():
+            print(f"  {name} -> {path}")
         return
     
     # Run example
     if args.example:
-        # Find the example
-        example_path = None
-        for category in EXAMPLES:
-            for example in EXAMPLES[category]:
-                if example == args.example or example.endswith(f"/{args.example}"):
-                    example_path = example
+        # Check if it's a simplified name
+        if args.example in SIMPLIFIED_NAMES:
+            example_path = SIMPLIFIED_NAMES[args.example]
+        else:
+            # Find the example
+            example_path = None
+            for category in EXAMPLES:
+                for example in EXAMPLES[category]:
+                    if example == args.example or example.endswith(f"/{args.example}"):
+                        example_path = example
+                        break
+                if example_path:
                     break
-            if example_path:
-                break
         
         if not example_path:
             print(f"Example '{args.example}' not found")

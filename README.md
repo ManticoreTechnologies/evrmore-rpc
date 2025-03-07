@@ -1,18 +1,14 @@
-# evrmore-rpc
+# Evrmore RPC Client
 
-A high-performance Python wrapper for Evrmore blockchain RPC commands, supporting both synchronous and asynchronous usage with a seamless API.
+A Python client for interacting with the Evrmore blockchain via RPC.
 
 ## Features
 
-- **Seamless API**: Use the same client for both synchronous and asynchronous code without context managers
-- **High-Performance Direct RPC**: Communicates directly with the Evrmore daemon over HTTP JSON-RPC
-- **Automatic Configuration**: Automatically reads and parses `evrmore.conf` for connection details
-- **Enhanced Auto-Detection**: Client automatically detects whether it's being used in a synchronous or asynchronous context
-- **Connection Pooling**: Maintains persistent connections for better performance
-- **Type Hints**: Comprehensive type annotations for better IDE support
-- **Pydantic Models**: Response models for common RPC commands
-- **Integrated Stress Testing**: Built-in performance testing tools
-- **Concurrency**: Easily make concurrent RPC calls for maximum throughput
+- Seamless API that works in both synchronous and asynchronous contexts
+- Automatic detection of sync/async context
+- Comprehensive type hints for better IDE integration
+- Support for all Evrmore RPC commands
+- ZMQ support for real-time blockchain notifications
 
 ## Installation
 
@@ -20,179 +16,106 @@ A high-performance Python wrapper for Evrmore blockchain RPC commands, supportin
 pip install evrmore-rpc
 ```
 
-## Quick Start
-
-### Seamless API (Recommended)
+## Basic Usage
 
 ```python
-import asyncio
 from evrmore_rpc import EvrmoreClient
 
-# Create a single client instance
-client = EvrmoreClient()
-
-def sync_example():
-    """Synchronous example"""
-    # Just call methods directly - no 'with' needed
-    info = client.getblockchaininfo()
-    print(f"Sync - Chain: {info['chain']}, Blocks: {info['blocks']}")
-
-async def async_example():
-    """Asynchronous example"""
-    # Just await methods directly - no 'async with' needed
-    info = await client.getblockchaininfo()
-    print(f"Async - Chain: {info['chain']}, Blocks: {info['blocks']}")
-
-async def main():
-    """Run both examples with the same client instance"""
-    # Run sync example
-    sync_example()
-    
-    # Reset client state before async usage
-    client.reset()
-    
-    # Run async example
-    await async_example()
-    
-    # Clean up resources when done
-    await client.close()
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-## Auto-Detection
-
-The client automatically detects whether it's being used in a synchronous or asynchronous context:
-
-```python
-import asyncio
-from evrmore_rpc import EvrmoreClient
-
-# Create a single client instance
+# Create a client
 client = EvrmoreClient()
 
 # Use synchronously
-def sync_function():
-    info = client.getblockchaininfo()  # Runs synchronously
-    print(f"Chain: {info['chain']}")
+info = client.getblockchaininfo()
+print(f"Chain: {info['chain']}, Blocks: {info['blocks']}")
 
 # Use asynchronously
-async def async_function():
-    # Reset client state when switching between sync and async
-    client.reset()
-    
-    info = await client.getblockchaininfo()  # Runs asynchronously
-    print(f"Chain: {info['chain']}")
+import asyncio
 
-# Run both with the same client instance
 async def main():
-    sync_function()
-    await async_function()
-    await client.close()  # Clean up when done
+    info = await client.getblockchaininfo()
+    print(f"Chain: {info['chain']}, Blocks: {info['blocks']}")
+    
+    # Clean up when done
+    await client.close()
 
 asyncio.run(main())
 ```
 
-### Forcing Sync or Async Mode
+## Running Examples
 
-You can also explicitly set the mode if needed:
-
-```python
-# Force synchronous mode
-client = EvrmoreClient().force_sync()
-info = client.getblockchaininfo()  # Always runs synchronously
-
-# Force asynchronous mode
-client = EvrmoreClient().force_async()
-info = await client.getblockchaininfo()  # Always runs asynchronously
-
-# Reset to auto-detect mode
-client.reset()
-```
-
-## Configuration Options
-
-```python
-from evrmore_rpc import EvrmoreClient
-
-# Explicit configuration
-client = EvrmoreClient(
-    url="http://username:password@localhost:8819/",  # Full RPC URL with credentials
-    datadir="/path/to/evrmore",                      # Custom data directory
-    rpcuser="username",                              # RPC username
-    rpcpassword="password",                          # RPC password
-    rpcport=8819,                                    # RPC port
-    testnet=False,                                   # Use testnet
-    timeout=30                                       # Request timeout in seconds
-)
-
-# Use the client
-info = client.getblockchaininfo()
-print(f"Chain: {info['chain']}")
-
-# Clean up when done
-client.close_sync()  # For sync usage
-# or
-await client.close()  # For async usage
-```
-
-## Performance Testing
-
-The library includes built-in stress testing tools that work in both sync and async modes:
+The repository includes several examples demonstrating different aspects of the library. You can run them using the `run_examples.py` script:
 
 ```bash
-# Run auto-detected stress test
-python -m evrmore_rpc.stress_test
+# List available examples
+python run_examples.py --list
 
-# Run with custom parameters
-python -m evrmore_rpc.stress_test --num-calls 1000 --command getbestblockhash --concurrency 20
+# Run a basic example
+python run_examples.py super_simple.py
+
+# Run an advanced example
+python run_examples.py asset_monitor/monitor.py
 ```
 
-You can also run stress tests programmatically:
+### Basic Examples
+
+- `super_simple.py`: The simplest example showing the core functionality of the seamless API.
+- `seamless_api.py`: A more comprehensive example demonstrating the seamless API in various scenarios.
+- `simple_auto_detect.py`: Shows how the client automatically detects whether it's being used in a synchronous or asynchronous context.
+
+### Advanced Examples
+
+- `asset_monitor/monitor.py`: Real-time monitoring of asset creation and transfers.
+- `blockchain_explorer/explorer.py`: Simple blockchain explorer implementation.
+- `network_monitor/monitor.py`: Monitor network health and peer connections.
+- `wallet_tracker/tracker.py`: Track wallet balances and transactions.
+- `asset_swap/simple_swap.py`: Simple asset swap platform.
+
+## Configuration
+
+The client can be configured in several ways:
 
 ```python
-import asyncio
-from evrmore_rpc import EvrmoreClient
+# Using constructor parameters
+client = EvrmoreClient(
+    rpcuser="your_username",
+    rpcpassword="your_password",
+    rpchost="localhost",
+    rpcport=8819,
+)
 
-async def main():
-    client = EvrmoreClient()
-    
-    try:
-        # Run stress test
-        results = await client.stress_test(num_calls=100, command="getblockcount", concurrency=20)
-        print(f"Requests per second: {results['requests_per_second']}")
-    finally:
-        await client.close()
+# Using environment variables
+# EVRMORE_RPC_USER, EVRMORE_RPC_PASSWORD, EVRMORE_RPC_HOST, EVRMORE_RPC_PORT
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# Using evrmore.conf
+# The client will automatically look for evrmore.conf in the default location
 ```
 
-## Response Models
+## ZMQ Support
 
-The library includes Pydantic models for common RPC responses:
+The library includes support for ZMQ notifications from the Evrmore node:
 
 ```python
-import asyncio
-from evrmore_rpc import EvrmoreClient, BlockchainInfo
+from evrmore_rpc.zmq import EvrmoreZMQClient, ZMQTopic
 
-async def main():
-    client = EvrmoreClient()
-    
-    try:
-        # Get typed response
-        info_dict = await client.getblockchaininfo()
-        info = BlockchainInfo.model_validate(info_dict)
-        print(f"Chain: {info.chain}")
-        print(f"Blocks: {info.blocks}")
-    finally:
-        await client.close()
+# Create a ZMQ client
+zmq_client = EvrmoreZMQClient()
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# Register handlers for different topics
+@zmq_client.on(ZMQTopic.HASH_BLOCK)
+async def handle_block(notification):
+    print(f"New block: {notification.hex}")
+
+@zmq_client.on(ZMQTopic.HASH_TX)
+async def handle_transaction(notification):
+    print(f"New transaction: {notification.hex}")
+
+# Start the client
+await zmq_client.start()
+
+# Stop the client when done
+await zmq_client.stop()
 ```
 
 ## License
 
-MIT License - See LICENSE file for details
+This project is licensed under the MIT License - see the LICENSE file for details.

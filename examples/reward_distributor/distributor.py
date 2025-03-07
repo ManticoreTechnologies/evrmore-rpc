@@ -3,18 +3,20 @@
 Evrmore Reward Distributor Example
 
 This example demonstrates how to:
-1. Take snapshots of asset holders
-2. Calculate reward distributions
+1. Take a snapshot of asset ownership at a specific block height
+2. Calculate rewards based on that snapshot
 3. Distribute rewards to asset holders
-4. Track distribution status and history
+4. Track and verify reward distributions
 
 Requirements:
-    - Evrmore node with RPC and ZMQ enabled
+    - Evrmore node with RPC enabled
     - evrmore-rpc package installed
 """
 
 import asyncio
-import signal
+import sys
+import json
+import os
 from datetime import datetime, timedelta
 from decimal import Decimal
 from typing import Dict, List, Optional, Set
@@ -26,8 +28,7 @@ from rich.panel import Panel
 from rich.text import Text
 from rich.prompt import Prompt
 from rich.progress import Progress, SpinnerColumn, TextColumn
-from evrmore_rpc import EvrmoreRPCClient
-from evrmore_rpc.zmq.client import EvrmoreZMQClient, ZMQNotification, ZMQTopic
+from evrmore_rpc import EvrmoreClient
 
 # Rich console for pretty output
 console = Console()
@@ -64,7 +65,7 @@ state = {
 }
 
 # RPC client
-rpc = EvrmoreRPCClient()
+rpc = EvrmoreClient()
 
 def format_amount(amount: Decimal, asset: Optional[str] = None) -> str:
     """Format amount with proper precision."""

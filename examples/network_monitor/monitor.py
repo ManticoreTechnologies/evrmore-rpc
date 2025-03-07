@@ -1,33 +1,37 @@
 #!/usr/bin/env python3
 """
-Evrmore Network Monitor Example
+Evrmore Network Monitor Example (Simplified)
 
 This example demonstrates how to:
-1. Monitor network connections and peer information
-2. Track network traffic and bandwidth usage
-3. Detect network issues and peer misbehavior
-4. Generate network health reports
+1. Monitor network health and peer connections
+2. Track blockchain statistics
+3. Monitor memory pool activity
+4. Detect stalled blocks or potential fork scenarios
 
 Requirements:
-    - Evrmore node with RPC and ZMQ enabled
+    - Evrmore node with RPC enabled
     - evrmore-rpc package installed
 """
 
 import asyncio
 import signal
 from datetime import datetime, timedelta
+from typing import Dict, List, Set, Optional
+import time
+import math
 from decimal import Decimal
-from typing import Dict, List, Optional, Set
 from dataclasses import dataclass
+
 from rich.console import Console
 from rich.live import Live
 from rich.table import Table
 from rich.panel import Panel
 from rich.text import Text
+from rich.progress import Progress, BarColumn, TextColumn
 from rich.prompt import Prompt
-from rich.progress import Progress
-from evrmore_rpc import EvrmoreRPCClient
-from evrmore_rpc.zmq.client import EvrmoreZMQClient, ZMQNotification, ZMQTopic
+from evrmore_rpc import EvrmoreClient
+from evrmore_rpc.zmq.client import EvrmoreZMQClient, ZMQTopic
+from evrmore_rpc.zmq.models import ZMQNotification
 
 # Rich console for pretty output
 console = Console()
@@ -75,7 +79,7 @@ state = {
 }
 
 # RPC client
-rpc = EvrmoreRPCClient()
+rpc = EvrmoreClient()
 
 def format_size(size: int) -> str:
     """Format size in bytes to human readable format."""

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Evrmore Blockchain Explorer Example
+Evrmore Blockchain Explorer Example (Simplified)
 
 This example demonstrates how to build a simple blockchain explorer that:
-1. Monitors new blocks and transactions in real-time using ZMQ
+1. Monitors new blocks and transactions using polling
 2. Allows querying historical data using RPC
 3. Provides detailed information about blocks, transactions, and addresses
 4. Calculates network statistics
 
 Requirements:
-    - Evrmore node with RPC and ZMQ enabled
+    - Evrmore node with RPC enabled
     - evrmore-rpc package installed
 """
 
@@ -24,10 +24,9 @@ from rich.panel import Panel
 from rich.text import Text
 from rich.prompt import Prompt
 from rich.progress import Progress
-from evrmore_rpc import EvrmoreRPCClient
-from evrmore_rpc.zmq.client import EvrmoreZMQClient, ZMQNotification, ZMQTopic
-from evrmore_rpc.commands.blockchain import Block as BlockModel
-from evrmore_rpc.commands.rawtransactions import DecodedRawTransaction
+from evrmore_rpc import EvrmoreClient
+from evrmore_rpc.zmq.client import EvrmoreZMQClient, ZMQTopic
+from evrmore_rpc.zmq.models import ZMQNotification
 
 # Rich console for pretty output
 console = Console()
@@ -39,10 +38,13 @@ state = {
     'start_time': datetime.now(),
     'block_count': 0,
     'tx_count': 0,
+    'last_block': 0,
 }
 
 # RPC client
-rpc = EvrmoreRPCClient()
+rpc = EvrmoreClient()
+# Force sync mode
+rpc.force_sync()
 
 def format_amount(amount: Decimal) -> str:
     """Format EVR amount with proper precision."""
@@ -50,68 +52,70 @@ def format_amount(amount: Decimal) -> str:
 
 async def get_block_info(block_hash: str) -> dict:
     """Get detailed block information."""
-    block = await asyncio.to_thread(rpc.getblock, block_hash, 2)  # Verbose output
-    block_dict = dict(block)  # Convert to dictionary since verbosity 2 returns raw data
+    block = rpc.getblock(block_hash, 2)  # Verbose output with tx details
     
     # Calculate block reward
     reward = Decimal('0')
-    for tx in block_dict['tx']:
-        if not tx['vin'][0].get('coinbase'):
+    for tx in block['tx']:
+        if 'vin' not in tx or not tx['vin'] or 'coinbase' not in tx['vin'][0]:
             continue
         for vout in tx['vout']:
             reward += Decimal(str(vout['value']))
     
     return {
-        'hash': block_dict['hash'],
-        'height': block_dict['height'],
-        'time': datetime.fromtimestamp(block_dict['time']),
-        'transactions': len(block_dict['tx']),
-        'size': block_dict['size'],
-        'weight': block_dict['weight'],
-        'difficulty': Decimal(str(block_dict['difficulty'])),
+        'hash': block['hash'],
+        'height': block['height'],
+        'time': datetime.fromtimestamp(block['time']),
+        'transactions': len(block['tx']),
+        'size': block['size'],
+        'weight': block.get('weight', 0),
+        'difficulty': Decimal(str(block['difficulty'])),
         'reward': reward,
+        'tx_ids': [tx['txid'] for tx in block['tx'][:10]],  # Just store first 10 txids
     }
 
 async def get_transaction_info(txid: str) -> dict:
     """Get detailed transaction information."""
-    tx = await asyncio.to_thread(rpc.getrawtransaction, txid, True)
-    tx_dict = dict(tx)  # Convert to dictionary since we need raw data
+    tx = rpc.getrawtransaction(txid, True)
     
     # Calculate total input/output values
     total_in = Decimal('0')
     total_out = Decimal('0')
     
-    for vin in tx_dict['vin']:
+    for vin in tx.get('vin', []):
         if 'coinbase' in vin:
             continue
-        prev_tx = await asyncio.to_thread(
-            rpc.getrawtransaction,
-            vin['txid'],
-            True
-        )
-        prev_tx_dict = dict(prev_tx)  # Convert to dictionary
-        total_in += Decimal(str(prev_tx_dict['vout'][vin['vout']]['value']))
+        try:
+            prev_tx = rpc.getrawtransaction(vin['txid'], True)
+            total_in += Decimal(str(prev_tx['vout'][vin['vout']]['value']))
+        except Exception as e:
+            console.print(f"[yellow]Warning getting input value: {e}[/yellow]")
     
-    for vout in tx_dict['vout']:
+    for vout in tx.get('vout', []):
         total_out += Decimal(str(vout['value']))
     
     # Get block time for transaction
-    block_hash = tx_dict.get('blockhash')
+    block_hash = tx.get('blockhash')
     if block_hash:
-        block = await asyncio.to_thread(rpc.getblock, block_hash, 1)
-        block_dict = dict(block)
-        tx_time = block_dict['time']
+        block_time = tx.get('blocktime', 0)
+        if not block_time:
+            try:
+                block = rpc.getblock(block_hash, 1)
+                block_time = block['time']
+            except:
+                block_time = int(datetime.now().timestamp())
     else:
         # For mempool transactions, use current time
-        tx_time = int(datetime.now().timestamp())
+        block_time = int(datetime.now().timestamp())
     
     return {
-        'txid': tx_dict['txid'],
-        'size': tx_dict['size'],
-        'time': datetime.fromtimestamp(tx_time),
+        'txid': tx['txid'],
+        'size': tx.get('size', 0),
+        'time': datetime.fromtimestamp(block_time),
         'total_input': total_in,
         'total_output': total_out,
         'fee': total_in - total_out if total_in > 0 else Decimal('0'),
+        'confirmations': tx.get('confirmations', 0),
     }
 
 def create_stats_table() -> Table:
@@ -134,9 +138,9 @@ def create_stats_table() -> Table:
         f"Since {state['start_time'].strftime('%H:%M:%S')}"
     )
     table.add_row(
-        "Blocks",
-        str(state['block_count']),
-        f"{block_rate:.2f} blocks/s"
+        "Current Height",
+        str(state['last_block']),
+        f"{block_rate:.4f} blocks/s"
     )
     table.add_row(
         "Transactions",
@@ -147,7 +151,7 @@ def create_stats_table() -> Table:
     # Add latest blocks
     if state['latest_blocks']:
         table.add_row("Latest Blocks", "", "")
-        for block in reversed(state['latest_blocks'][-5:]):
+        for block in state['latest_blocks'][:5]:
             table.add_row(
                 f"Block {block['height']}",
                 block['hash'][:8] + "...",
@@ -159,76 +163,81 @@ def create_stats_table() -> Table:
     # Add latest transactions
     if state['latest_txs']:
         table.add_row("Latest Transactions", "", "")
-        for tx in reversed(state['latest_txs'][-5:]):
+        for tx in state['latest_txs'][:5]:
             table.add_row(
                 tx['txid'][:8] + "...",
                 format_amount(tx['total_output']),
                 f"Fee: {format_amount(tx['fee'])}, "
-                f"Size: {tx['size']} bytes"
+                f"Confs: {tx['confirmations']}"
             )
     
     return table
 
-async def handle_block(notification: ZMQNotification) -> None:
-    """Handle new block notifications."""
-    state['block_count'] += 1
-    
-    # Get detailed block info
-    block = await get_block_info(notification.hex)
-    state['latest_blocks'].append(block)
-    
-    # Keep only last 10 blocks
-    if len(state['latest_blocks']) > 10:
-        state['latest_blocks'].pop(0)
-
-async def handle_transaction(notification: ZMQNotification) -> None:
-    """Handle new transaction notifications."""
-    state['tx_count'] += 1
-    
-    # Get detailed transaction info
-    tx = await get_transaction_info(notification.hex)
-    state['latest_txs'].append(tx)
-    
-    # Keep only last 10 transactions
-    if len(state['latest_txs']) > 10:
-        state['latest_txs'].pop(0)
+async def process_new_blocks(start_height: int, end_height: int) -> None:
+    """Process new blocks from start_height to end_height (inclusive)."""
+    for height in range(start_height, end_height + 1):
+        try:
+            # Get block hash
+            block_hash = rpc.getblockhash(height)
+            
+            # Get detailed block info
+            block = await get_block_info(block_hash)
+            state['latest_blocks'].insert(0, block)
+            state['block_count'] += 1
+            
+            # Process transactions in the block
+            for txid in block['tx_ids']:
+                tx = await get_transaction_info(txid)
+                state['latest_txs'].insert(0, tx)
+                state['tx_count'] += 1
+            
+            # Keep only last 10 blocks and transactions
+            if len(state['latest_blocks']) > 10:
+                state['latest_blocks'] = state['latest_blocks'][:10]
+                
+            if len(state['latest_txs']) > 10:
+                state['latest_txs'] = state['latest_txs'][:10]
+                
+            # Update last processed block
+            state['last_block'] = height
+            
+        except Exception as e:
+            console.print(f"[red]Error processing block {height}: {e}[/red]")
 
 async def explorer() -> None:
     """Main explorer function."""
-    # Create ZMQ client
-    zmq_client = EvrmoreZMQClient()
+    # Get initial blockchain info
+    chain_info = rpc.getblockchaininfo()
+    state['last_block'] = chain_info['blocks'] - 10  # Start 10 blocks back
+    if state['last_block'] < 0:
+        state['last_block'] = 0
     
-    # Register handlers
-    zmq_client.on(ZMQTopic.HASH_BLOCK)(handle_block)
-    zmq_client.on(ZMQTopic.HASH_TX)(handle_transaction)
-    
-    # Start ZMQ client
-    zmq_task = asyncio.create_task(zmq_client.start())
+    # Initialize with some blocks
+    current_height = chain_info['blocks']
+    await process_new_blocks(state['last_block'] + 1, current_height)
     
     # Create live display
     with Live(create_stats_table(), refresh_per_second=4) as live:
-        def update_display():
-            live.update(create_stats_table())
-        
-        # Update display periodically
         while True:
             try:
-                update_display()
-                await asyncio.sleep(0.25)
+                # Check for new blocks
+                current_height = rpc.getblockcount()
+                
+                if current_height > state['last_block']:
+                    console.print(f"[green]New blocks detected: {state['last_block'] + 1} to {current_height}[/green]")
+                    await process_new_blocks(state['last_block'] + 1, current_height)
+                
+                # Update display
+                live.update(create_stats_table())
+                
+                # Sleep to avoid excessive polling
+                await asyncio.sleep(2)
+                
             except asyncio.CancelledError:
                 break
             except Exception as e:
-                console.print(f"[red]Error:[/] {e}")
-                break
-    
-    # Cleanup
-    await zmq_client.stop()
-    if not zmq_task.done():
-        zmq_task.cancel()
-        try:
-            await zmq_task
-        except asyncio.CancelledError:
-            pass
+                console.print(f"[red]Error: {e}[/red]")
+                await asyncio.sleep(5)  # Wait longer after an error
 
 async def main():
     """Main entry point."""
@@ -237,33 +246,32 @@ async def main():
         console.print(Panel(
             Text.from_markup(
                 "[bold cyan]Evrmore Blockchain Explorer[/]\n\n"
-                "Monitoring blockchain activity in real-time...\n"
+                "Monitoring blockchain activity...\n"
                 "Press [bold]Ctrl+C[/] to stop"
             ),
             title="Starting"
         ))
         
-        # Initialize state with current blockchain info
-        info = await asyncio.to_thread(rpc.getblockchaininfo)
-        tip = await get_block_info(info.bestblockhash)
-        state['latest_blocks'].append(tip)
+        # Set up signal handling
+        loop = asyncio.get_running_loop()
+        for sig in (signal.SIGINT, signal.SIGTERM):
+            loop.add_signal_handler(sig, lambda: asyncio.create_task(shutdown()))
         
-        # Get some recent transactions
-        mempool = await asyncio.to_thread(rpc.getrawmempool)
-        for txid in mempool[:5]:  # Get first 5 transactions
-            tx = await get_transaction_info(txid)
-            state['latest_txs'].append(tx)
-        
-        # Start the explorer
+        # Start explorer
         await explorer()
-        
-    except KeyboardInterrupt:
-        console.print(Panel(
-            Text.from_markup("[bold yellow]Shutting down...[/]"),
-            title="Stopping"
-        ))
+    
     except Exception as e:
-        console.print(f"[red]Error:[/] {e}")
+        console.print(f"[red]Error: {e}[/red]")
+    finally:
+        console.print("[yellow]Shutting down...[/yellow]")
+
+async def shutdown():
+    """Handle graceful shutdown."""
+    tasks = [t for t in asyncio.all_tasks() if t is not asyncio.current_task()]
+    for task in tasks:
+        task.cancel()
+    await asyncio.gather(*tasks, return_exceptions=True)
+    asyncio.get_event_loop().stop()
 
 if __name__ == "__main__":
     asyncio.run(main()) 

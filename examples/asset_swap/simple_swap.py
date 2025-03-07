@@ -16,6 +16,7 @@ import asyncio
 import os
 import json
 import uuid
+import time
 from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
 from decimal import Decimal
@@ -28,7 +29,7 @@ from rich.status import Status
 
 # Import the evrmore-rpc library
 # As a new developer, I'm starting with the basic imports I think I'll need
-from evrmore_rpc import EvrmoreRPCClient, EvrmoreAsyncRPCClient
+from evrmore_rpc import EvrmoreClient
 
 # Create a console for pretty output
 console = Console()
@@ -102,7 +103,9 @@ class AssetSwapPlatform:
         """Initialize the asset swap platform."""
         self.data_file = data_file
         self.offers: List[SwapOffer] = []
-        self.client = EvrmoreRPCClient()  # Using the synchronous client for simplicity
+        self.client = EvrmoreClient()  # Using the synchronous client for simplicity
+        # Force sync mode
+        self.client.force_sync()
         
         # Load existing offers if the data file exists
         self._load_offers()
@@ -513,7 +516,6 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        import time  # Import time for sleep functionality
         asyncio.run(main())
     except KeyboardInterrupt:
         console.print("\n[bold yellow]Program interrupted by user. Exiting...[/bold yellow]")

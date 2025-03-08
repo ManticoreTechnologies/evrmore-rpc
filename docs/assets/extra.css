@@ -1,0 +1,104 @@
+/* Custom Styles for Evrmore RPC Documentation */
+
+/* Sidebar styling */
+.md-nav {
+  font-size: 0.9rem;
+}
+
+.md-nav__title {
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.md-nav__item--nested > .md-nav__link {
+  font-weight: 600;
+}
+
+/* Article styling */
+.md-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.md-content__inner {
+  padding-top: 1.5rem;
+}
+
+/* Code blocks */
+.highlight {
+  border-radius: 4px;
+}
+
+.highlight pre {
+  padding: 1rem;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  font-size: 0.9rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: #5c6bc0;
+  color: #fff;
+}
+
+/* Admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+  border-left-width: 4px;
+}
+
+/* TOC on the right side */
+.md-grid {
+  max-width: 1440px;
+}
+
+.md-sidebar--secondary {
+  margin-left: 1rem;
+}
+
+.md-sidebar--secondary .md-nav__title {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+/* Fix scrollbar in sidebar */
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  overflow-y: auto;
+}
+
+/* Improve mobile display */
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar--primary {
+    width: 12.1rem;
+  }
+}
+
+/* Homepage styling */
+.md-typeset h1 {
+  font-weight: 600;
+  color: #5c6bc0;
+}
+
+/* API method styling */
+.md-typeset code {
+  font-size: 0.9em;
+}
+
+/* Method parameters */
+.doc-attribute {
+  margin-bottom: 1rem;
+}
+
+.doc-attribute__name {
+  font-weight: 600;
+  color: #5c6bc0;
+}
+
+/* Better scrolling on mobile */
+html {
+  scroll-padding-top: 4rem;
+} 

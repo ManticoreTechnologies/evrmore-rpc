@@ -12,22 +12,28 @@
         <meta name="author" content="Manticore Technology">
       
       
+        <link rel="canonical" href="https://manticoretechnology.github.io/evrmore-rpc/api_reference/">
       
       
+        <link rel="prev" href="..">
       
-      <link rel="icon" href="/evrmore-rpc/assets/favicon.png">
+      
+        <link rel="next" href="../sync_api/">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
-        <title>Evrmore RPC</title>
+        <title>Overview - Evrmore RPC</title>
       
     
     
-      <link rel="stylesheet" href="/evrmore-rpc/assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="/evrmore-rpc/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +52,11 @@
       
     
     
-      <link rel="stylesheet" href="/evrmore-rpc/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="/evrmore-rpc/assets/extra.css">
+      <link rel="stylesheet" href="../assets/extra.css">
     
-    <script>__md_scope=new URL("/evrmore-rpc/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -75,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -87,9 +98,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/evrmore-rpc/." title="Evrmore RPC" class="md-header__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
+    <a href=".." title="Evrmore RPC" class="md-header__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
       
-  <img src="/evrmore-rpc/assets/logo.svg" alt="logo">
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -106,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Overview
             
           </span>
         </div>
@@ -226,9 +237,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/evrmore-rpc/." title="Evrmore RPC" class="md-nav__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
+    <a href=".." title="Evrmore RPC" class="md-nav__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
       
-  <img src="/evrmore-rpc/assets/logo.svg" alt="logo">
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     Evrmore RPC
@@ -255,7 +266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -273,8 +284,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -298,13 +311,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -319,7 +330,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -330,10 +341,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/evrmore-rpc/api_reference/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -343,6 +375,73 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -355,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/sync_api/" class="md-nav__link">
+      <a href="../sync_api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/async_api/" class="md-nav__link">
+      <a href="../async_api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -399,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/zmq/" class="md-nav__link">
+      <a href="../zmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -421,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/websockets/" class="md-nav__link">
+      <a href="../websockets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -443,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/models/" class="md-nav__link">
+      <a href="../models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -472,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/examples/" class="md-nav__link">
+      <a href="../examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -493,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/advanced/" class="md-nav__link">
+      <a href="../advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/development/" class="md-nav__link">
+      <a href="../development/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,8 +639,111 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>This page documents the main classes and methods of the Evrmore RPC library.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Evrmore RPC library provides a comprehensive API for interacting with the Evrmore blockchain. The main components are:</p>
+<ul>
+<li><strong>Synchronous API</strong>: For standard synchronous programming</li>
+<li><strong>Asynchronous API</strong>: For async/await programming model</li>
+<li><strong>ZMQ Support</strong>: For real-time blockchain notifications</li>
+<li><strong>WebSockets Support</strong>: For real-time web applications</li>
+<li><strong>Models</strong>: Type-safe data structures for blockchain data</li>
+</ul>
+<h2 id="main-classes">Main Classes<a class="headerlink" href="#main-classes" title="Permanent link">&para;</a></h2>
+<p>The library provides several client classes to interact with the Evrmore blockchain:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+<th>Import Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EvrmoreClient</code></td>
+<td>Main synchronous client</td>
+<td><code>from evrmore_rpc import EvrmoreClient</code></td>
+</tr>
+<tr>
+<td><code>EvrmoreAsyncRPCClient</code></td>
+<td>Asynchronous RPC client</td>
+<td><code>from evrmore_rpc import EvrmoreAsyncRPCClient</code></td>
+</tr>
+<tr>
+<td><code>EvrmoreZMQClient</code></td>
+<td>ZMQ notifications client</td>
+<td><code>from evrmore_rpc.zmq import EvrmoreZMQClient</code></td>
+</tr>
+<tr>
+<td><code>EvrmoreWebSocketClient</code></td>
+<td>WebSocket client</td>
+<td><code>from evrmore_rpc.websockets import EvrmoreWebSocketClient</code></td>
+</tr>
+<tr>
+<td><code>EvrmoreWebSocketServer</code></td>
+<td>WebSocket server</td>
+<td><code>from evrmore_rpc.websockets import EvrmoreWebSocketServer</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-example">Quick Example<a class="headerlink" href="#quick-example" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreClient</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Create a client</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreClient</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Get blockchain info</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">info</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getblockchaininfo</span><span class="p">()</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current block height: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">blocks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chain: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">chain</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Difficulty: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">difficulty</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Get a block</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">block_hash</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getblockhash</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">block</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getblock</span><span class="p">(</span><span class="n">block_hash</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Block #1 hash: </span><span class="si">{</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Block #1 time: </span><span class="si">{</span><span class="n">block</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Block #1 transactions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">tx</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="api-design">API Design<a class="headerlink" href="#api-design" title="Permanent link">&para;</a></h2>
+<p>The API is designed with several key principles in mind:</p>
+<ol>
+<li><strong>Type Safety</strong>: All methods and responses are fully typed with proper type hints.</li>
+<li><strong>Consistency</strong>: Methods follow a consistent naming and parameter pattern.</li>
+<li><strong>Pythonic</strong>: API feels natural to Python developers.</li>
+<li><strong>Performance</strong>: Optimized for efficient blockchain interactions.</li>
+</ol>
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<p>Explore the specific sections for more detailed information:</p>
+<ul>
+<li><a href="../sync_api/">Synchronous API</a>: For traditional synchronous programming</li>
+<li><a href="../async_api/">Asynchronous API</a>: For async/await programming model</li>
+<li><a href="../zmq/">ZMQ Support</a>: For real-time blockchain notifications</li>
+<li><a href="../websockets/">WebSockets Support</a>: For real-time web applications</li>
+<li><a href="../models/">Models</a>: Type-safe data structures for blockchain data </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -553,6 +755,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../sync_api/" class="md-footer__link md-footer__link--next" aria-label="Next: Synchronous API">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Synchronous API
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -607,10 +847,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/evrmore-rpc/", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "toc.follow", "toc.integrate", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "/evrmore-rpc/assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "toc.follow", "toc.integrate", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/evrmore-rpc/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

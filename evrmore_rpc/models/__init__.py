@@ -1,7 +1,30 @@
 """
 evrmore-rpc: Models for Evrmore RPC responses
+
 Copyright (c) 2025 Manticore Technologies
 MIT License - See LICENSE file for details
+
+This module provides Pydantic models for all Evrmore RPC response data structures.
+These models provide:
+- Type safety with comprehensive type hints
+- Automatic validation of response data
+- Consistent access patterns for all response types
+- Built-in serialization and deserialization
+- Clear documentation of all fields and their purposes
+
+For each RPC command, a corresponding model is provided that matches
+the structure of the response data. This ensures that all data returned
+from the RPC is properly typed and validated.
+
+The models are organized into categories matching the Evrmore RPC command groups:
+- Base: Common types used across multiple command groups
+- Blockchain: Block, transaction, and chain information
+- Assets: Asset data and operations
+- Network: Network connection and peer information
+- Mining: Mining status and control
+- Address Index: Address-based indexing and queries
+- Raw Transactions: Low-level transaction handling
+- Wallet: Wallet management and transactions
 """
 
 # Base models

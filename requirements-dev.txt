@@ -1,0 +1,16 @@
+# Development dependencies
+pytest>=7.0.0
+pytest-asyncio>=0.18.0
+black>=23.0.0
+isort>=5.0.0
+mypy>=1.0.0
+twine>=4.0.0
+build>=0.10.0
+mkdocs>=1.4.0
+mkdocs-material>=9.0.0
+mkdocstrings>=0.22.0
+mkdocstrings-python>=1.0.0
+coverage>=7.0.0
+
+# Include core dependencies
+-r requirements.txt 

@@ -1,10 +1,25 @@
 """
-evrmore-rpc: A streamlined, high-performance Python wrapper for Evrmore blockchain
+evrmore-rpc: A comprehensive Python wrapper for Evrmore blockchain RPC
+
 Copyright (c) 2025 Manticore Technologies
 MIT License - See LICENSE file for details
 
-This library provides a polymorphic client that can be used both synchronously and asynchronously
-with the same API. The client automatically detects the context (sync or async) and adapts accordingly.
+Features:
+- Polymorphic client that works identically in both synchronous and asynchronous contexts
+- Automatic detection of execution context (sync/async) with seamless adaptation
+- Comprehensive type hints and Pydantic models for strong type safety
+- High-performance connection handling with both HTTP and ZMQ interfaces
+- Complete coverage of all Evrmore RPC commands with proper parameter typing
+- Structured response models with automatic validation
+- Flexible configuration via constructor parameters, environment variables, or evrmore.conf
+- ZMQ support for real-time blockchain notifications
+- Built-in stress testing and performance analysis capabilities
+
+For documentation and examples, visit:
+https://github.com/manticore-tech/evrmore-rpc
+
+For issues and contributions:
+https://github.com/manticore-tech/evrmore-rpc/issues
 """
 
 __version__ = "3.2.1"

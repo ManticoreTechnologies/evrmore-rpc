@@ -1,5 +1,32 @@
 """
-ZMQ client for receiving Evrmore blockchain notifications.
+ZMQ client for receiving Evrmore blockchain notifications in real-time.
+
+This module provides a high-level, asynchronous interface to the Evrmore ZMQ notifications.
+The Evrmore node can publish notifications about various blockchain events through ZMQ,
+and this client allows subscribing to those events and handling them in real-time.
+
+Features:
+- Asynchronous API with asyncio integration
+- Event-based handling with decorator-based registration
+- Support for all standard Evrmore ZMQ notification topics
+- Automatic reconnection on connection loss
+- Clean shutdown and resource management
+- Typed notification data with structured fields
+
+Available notification topics:
+- HASH_BLOCK: New block hash (lightweight notification of new blocks)
+- HASH_TX: New transaction hash (lightweight notification of new transactions)
+- RAW_BLOCK: Complete serialized block data
+- RAW_TX: Complete serialized transaction data
+
+Usage requires ZMQ to be enabled in the Evrmore node configuration (evrmore.conf):
+    zmqpubhashtx=tcp://127.0.0.1:28332
+    zmqpubhashblock=tcp://127.0.0.1:28332
+    zmqpubrawtx=tcp://127.0.0.1:28332
+    zmqpubrawblock=tcp://127.0.0.1:28332
+
+Dependencies:
+- pyzmq: Python bindings for ZeroMQ
 """
 
 import asyncio

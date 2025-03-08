@@ -22,7 +22,7 @@ For issues and contributions:
 https://github.com/manticore-tech/evrmore-rpc/issues
 """
 
-__version__ = "3.2.1"
+__version__ = "3.2.2"
 
 from evrmore_rpc.client import (
     EvrmoreClient,

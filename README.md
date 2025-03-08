@@ -130,10 +130,16 @@ print(f"Asset: {asset.name}, Supply: {asset.amount}")
 
 ## ZMQ Interface
 
-The library provides a clean interface for ZMQ notifications:
+The library provides a clean interface for ZMQ notifications from the Evrmore blockchain:
 
 ```python
 from evrmore_rpc.zmq import EvrmoreZMQClient, ZMQTopic
+from evrmore_rpc import EvrmoreClient
+
+# Create an RPC client for additional queries
+# Important: Force async mode for use with ZMQ
+rpc_client = EvrmoreClient()
+rpc_client.force_async()
 
 # Create a ZMQ client
 zmq_client = EvrmoreZMQClient(
@@ -145,12 +151,17 @@ zmq_client = EvrmoreZMQClient(
 @zmq_client.on(ZMQTopic.HASH_BLOCK)
 async def handle_block(notification):
     print(f"New block: {notification.hex}")
-    # Process the block...
+    
+    # Use RPC client to get more information
+    try:
+        block_data = await rpc_client.getblock(notification.hex)
+        print(f"Block height: {block_data['height']}")
+    except Exception as e:
+        print(f"Error getting block details: {e}")
 
 @zmq_client.on(ZMQTopic.HASH_TX)
 async def handle_transaction(notification):
     print(f"New transaction: {notification.hex}")
-    # Process the transaction...
 
 # Start the client
 await zmq_client.start()
@@ -161,9 +172,35 @@ try:
 except asyncio.CancelledError:
     pass
 
-# Stop the client when done
+# Clean shutdown - stop both clients
 await zmq_client.stop()
+await rpc_client.close()
 ```
+
+### ZMQ Configuration
+
+To use ZMQ notifications, your Evrmore node must be configured with ZMQ support. Add these lines to your `evrmore.conf` file:
+
+```
+zmqpubhashtx=tcp://127.0.0.1:28332
+zmqpubhashblock=tcp://127.0.0.1:28332
+zmqpubrawtx=tcp://127.0.0.1:28332
+zmqpubrawblock=tcp://127.0.0.1:28332
+```
+
+### Available Notification Types
+
+- `ZMQTopic.HASH_BLOCK`: Lightweight notification of new blocks (just the block hash)
+- `ZMQTopic.HASH_TX`: Lightweight notification of new transactions (just the transaction hash)
+- `ZMQTopic.RAW_BLOCK`: Complete serialized block data
+- `ZMQTopic.RAW_TX`: Complete serialized transaction data
+
+### Best Practices for ZMQ
+
+1. **Always force async mode** for the RPC client when using with ZMQ
+2. **Always use await** on all RPC methods in ZMQ handlers
+3. **Properly clean up resources** by stopping the ZMQ client and closing the RPC client
+4. **Handle exceptions** in your notification handlers to prevent crashes
 
 ## Advanced Usage
 

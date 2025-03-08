@@ -25,6 +25,39 @@ Usage requires ZMQ to be enabled in the Evrmore node configuration (evrmore.conf
     zmqpubrawtx=tcp://127.0.0.1:28332
     zmqpubrawblock=tcp://127.0.0.1:28332
 
+Using with RPC client:
+When using the ZMQ client alongside the EvrmoreClient for RPC calls, follow these best practices:
+
+1. Always force async mode for the RPC client:
+   ```
+   from evrmore_rpc import EvrmoreClient
+   rpc_client = EvrmoreClient()
+   rpc_client.force_async()  # This is critical for correct operation
+   ```
+
+2. Always await all RPC calls inside ZMQ handlers:
+   ```
+   @zmq_client.on(ZMQTopic.HASH_BLOCK)
+   async def handle_block(notification):
+       block_data = await rpc_client.getblock(notification.hex)  # Note the await
+   ```
+
+3. Always properly close both clients when shutting down:
+   ```
+   await zmq_client.stop()
+   await rpc_client.close()
+   ```
+
+4. Handle exceptions in your notification handlers to prevent crashes:
+   ```
+   @zmq_client.on(ZMQTopic.HASH_BLOCK)
+   async def handle_block(notification):
+       try:
+           block_data = await rpc_client.getblock(notification.hex)
+       except Exception as e:
+           print(f"Error handling block: {e}")
+   ```
+
 Dependencies:
 - pyzmq: Python bindings for ZeroMQ
 """

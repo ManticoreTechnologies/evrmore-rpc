@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- Comprehensive ZMQ notification examples
+- Detailed documentation for ZMQ usage patterns
+- Best practices for using RPC client with ZMQ
+
+### Fixed
+- Critical bug in ZMQ examples where RPC client wasn't correctly used in async context
+- ZMQ handlers now properly use `force_async()` to ensure correct async operation
+
+### Changed
+- Improved ZMQ client documentation with focus on correct async usage
+- Enhanced error handling in ZMQ notification handlers
+- Updated ZMQ examples to demonstrate proper resource management
+
 ## 3.2.1 (2024-05-15)
 
 ### Added

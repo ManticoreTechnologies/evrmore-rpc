@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "evrmore-rpc"
-version = "3.2.1"
+version = "3.2.2"
 description = "A high-performance Python wrapper for Evrmore blockchain RPC commands with a seamless API"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -83,7 +83,7 @@ multi_line_output = 3
 line_length = 100
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.2.2"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

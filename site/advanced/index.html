@@ -18,9 +18,11 @@
         <link rel="prev" href="../examples/">
       
       
+        <link rel="next" href="../development/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
@@ -218,6 +220,8 @@
         <a href="../sync_api/" class="md-tabs__link">
           
   
+    
+  
   API Reference
 
         </a>
@@ -256,6 +260,23 @@
     
   
   Advanced Usage
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../development/" class="md-tabs__link">
+        
+  
+    
+  
+  Development
 
       </a>
     </li>
@@ -336,6 +357,18 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
       
       
@@ -405,6 +438,50 @@
   
   <span class="md-ellipsis">
     Asynchronous API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZMQ Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websockets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebSockets Support
     
   </span>
   
@@ -809,6 +886,27 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1141,7 +1239,7 @@
 <h2 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h2>
 <h3 id="connection-pooling">Connection Pooling<a class="headerlink" href="#connection-pooling" title="Permanent link">&para;</a></h3>
 <p>When making multiple RPC calls, it's more efficient to reuse the same client instance rather than creating a new one for each call:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Create a single client instance</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
@@ -1153,10 +1251,10 @@
 </code></pre></div>
 <h3 id="parallel-execution-with-async-api">Parallel Execution with Async API<a class="headerlink" href="#parallel-execution-with-async-api" title="Permanent link">&para;</a></h3>
 <p>For applications that need to make many RPC calls, the asynchronous API can significantly improve performance by executing calls concurrently:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="c1"># Execute multiple commands concurrently</span>
         <span class="n">info</span><span class="p">,</span> <span class="n">block_hash</span><span class="p">,</span> <span class="n">mempool_info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
@@ -1177,9 +1275,9 @@
 </code></pre></div>
 <h3 id="batch-processing">Batch Processing<a class="headerlink" href="#batch-processing" title="Permanent link">&para;</a></h3>
 <p>For processing large amounts of data, use batch processing to avoid memory issues:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
-<span class="k">def</span> <span class="nf">process_blocks_in_batches</span><span class="p">(</span><span class="n">start_height</span><span class="p">,</span> <span class="n">end_height</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process_blocks_in_batches</span><span class="p">(</span><span class="n">start_height</span><span class="p">,</span> <span class="n">end_height</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">batch_start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_height</span><span class="p">,</span> <span class="n">end_height</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
@@ -1198,10 +1296,10 @@
 <h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
 <h3 id="robust-error-handling">Robust Error Handling<a class="headerlink" href="#robust-error-handling" title="Permanent link">&para;</a></h3>
 <p>Implement robust error handling to deal with network issues, node downtime, and other potential problems:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="k">def</span> <span class="nf">get_block_with_retry</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">retry_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_block_with_retry</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">retry_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
@@ -1231,10 +1329,10 @@
 </code></pre></div>
 <h3 id="async-error-handling">Async Error Handling<a class="headerlink" href="#async-error-handling" title="Permanent link">&para;</a></h3>
 <p>For asynchronous code, use proper async error handling:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">get_block_with_retry_async</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">retry_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_block_with_retry_async</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">retry_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
@@ -1254,7 +1352,7 @@
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">raise</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">block</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_block_with_retry_async</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Block 100 has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">tx</span><span class="p">)</span><span class="si">}</span><span class="s2"> transactions&quot;</span><span class="p">)</span>
@@ -1266,14 +1364,14 @@
 <h2 id="integration-with-other-libraries">Integration with Other Libraries<a class="headerlink" href="#integration-with-other-libraries" title="Permanent link">&para;</a></h2>
 <h3 id="integration-with-fastapi">Integration with FastAPI<a class="headerlink" href="#integration-with-fastapi" title="Permanent link">&para;</a></h3>
 <p>Integrate with FastAPI to create a blockchain API:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Evrmore API&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;API for Evrmore blockchain&quot;</span><span class="p">)</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/blockchain/info&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get_blockchain_info</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_blockchain_info</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">info</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getblockchaininfo</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">{</span>
@@ -1287,7 +1385,7 @@
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/block/</span><span class="si">{height}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get_block</span><span class="p">(</span><span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_block</span><span class="p">(</span><span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">block_hash</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getblockhash</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
         <span class="n">block</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getblock</span><span class="p">(</span><span class="n">block_hash</span><span class="p">)</span>
@@ -1302,7 +1400,7 @@
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/transaction/</span><span class="si">{txid}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get_transaction</span><span class="p">(</span><span class="n">txid</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_transaction</span><span class="p">(</span><span class="n">txid</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">tx</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getrawtransaction</span><span class="p">(</span><span class="n">txid</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span>
@@ -1319,22 +1417,22 @@
 </code></pre></div>
 <h3 id="integration-with-async-fastapi">Integration with Async FastAPI<a class="headerlink" href="#integration-with-async-fastapi" title="Permanent link">&para;</a></h3>
 <p>For better performance, integrate with FastAPI using the async client:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Evrmore Async API&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Async API for Evrmore blockchain&quot;</span><span class="p">)</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">()</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">startup</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">startup</span><span class="p">():</span>
     <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">&quot;shutdown&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">shutdown</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">():</span>
     <span class="k">pass</span>  <span class="c1"># No cleanup needed for EvrmoreAsyncRPCClient</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/blockchain/info&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">get_blockchain_info</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_blockchain_info</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">getblockchaininfo</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">{</span>
@@ -1348,7 +1446,7 @@
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/block/</span><span class="si">{height}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">get_block</span><span class="p">(</span><span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_block</span><span class="p">(</span><span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">block_hash</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">getblockhash</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
         <span class="n">block</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">getblock</span><span class="p">(</span><span class="n">block_hash</span><span class="p">)</span>
@@ -1364,10 +1462,10 @@
 </code></pre></div>
 <h3 id="integration-with-sqlalchemy">Integration with SQLAlchemy<a class="headerlink" href="#integration-with-sqlalchemy" title="Permanent link">&para;</a></h3>
 <p>Store blockchain data in a database using SQLAlchemy:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">ForeignKey</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span><span class="p">,</span> <span class="n">relationship</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">ForeignKey</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.ext.declarative</span><span class="w"> </span><span class="kn">import</span> <span class="n">declarative_base</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">sessionmaker</span><span class="p">,</span> <span class="n">relationship</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Set up SQLAlchemy</span>
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
@@ -1375,7 +1473,7 @@
 <span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="c1"># Define models</span>
-<span class="k">class</span> <span class="nc">Block</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Block</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;blocks&quot;</span>
 
     <span class="n">height</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1385,7 +1483,7 @@
     <span class="n">tx_count</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">transactions</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Transaction&quot;</span><span class="p">,</span> <span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;block&quot;</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">Transaction</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Transaction</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;transactions&quot;</span>
 
     <span class="n">txid</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1398,7 +1496,7 @@
 <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="c1"># Function to sync blockchain data</span>
-<span class="k">def</span> <span class="nf">sync_blockchain_data</span><span class="p">(</span><span class="n">start_height</span><span class="p">,</span> <span class="n">end_height</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sync_blockchain_data</span><span class="p">(</span><span class="n">start_height</span><span class="p">,</span> <span class="n">end_height</span><span class="p">):</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
     <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
 
@@ -1451,19 +1549,19 @@
 <h2 id="advanced-zmq-usage">Advanced ZMQ Usage<a class="headerlink" href="#advanced-zmq-usage" title="Permanent link">&para;</a></h2>
 <h3 id="custom-zmq-message-processing">Custom ZMQ Message Processing<a class="headerlink" href="#custom-zmq-message-processing" title="Permanent link">&para;</a></h3>
 <p>Process ZMQ messages with custom logic:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
-<span class="k">class</span> <span class="nc">BlockchainMonitor</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BlockchainMonitor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span> <span class="o">=</span> <span class="n">EvrmoreZMQClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rpc_client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">blocks_processed</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">transactions_processed</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">asset_transfers</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Register handlers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">on_block</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_block</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">on_transaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_transaction</span><span class="p">)</span>
@@ -1472,11 +1570,11 @@
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blockchain monitor started&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blockchain monitor stopped&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
         <span class="n">block_hash</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">hex</span>
         <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rpc_client</span><span class="o">.</span><span class="n">getblock</span><span class="p">(</span><span class="n">block_hash</span><span class="p">)</span>
 
@@ -1488,7 +1586,7 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">tx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Large block detected: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">tx</span><span class="p">)</span><span class="si">}</span><span class="s2"> transactions&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
         <span class="n">txid</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">hex</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -1510,7 +1608,7 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error processing transaction </span><span class="si">{</span><span class="n">txid</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">monitor</span> <span class="o">=</span> <span class="n">BlockchainMonitor</span><span class="p">()</span>
 
     <span class="k">try</span><span class="p">:</span>
@@ -1535,23 +1633,23 @@
 <h2 id="advanced-websockets-usage">Advanced WebSockets Usage<a class="headerlink" href="#advanced-websockets-usage" title="Permanent link">&para;</a></h2>
 <h3 id="custom-websocket-server">Custom WebSocket Server<a class="headerlink" href="#custom-websocket-server" title="Permanent link">&para;</a></h3>
 <p>Create a custom WebSocket server with additional functionality:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Any</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Any</span>
 
-<span class="kn">import</span> <span class="nn">websockets</span>
-<span class="kn">from</span> <span class="nn">websockets.server</span> <span class="kn">import</span> <span class="n">WebSocketServerProtocol</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">websockets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">websockets.server</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebSocketServerProtocol</span>
 
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
 
 <span class="c1"># Configure logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;custom-websocket-server&quot;</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">CustomWebSocketServer</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8765</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomWebSocketServer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8765</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clients</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">WebSocketServerProtocol</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
@@ -1565,7 +1663,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span> <span class="o">=</span> <span class="n">EvrmoreZMQClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Register ZMQ handlers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">on_block</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_block</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">on_transaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_transaction</span><span class="p">)</span>
@@ -1582,7 +1680,7 @@
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WebSocket server started on ws://</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Stop WebSocket server</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1593,7 +1691,7 @@
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;WebSocket server stopped&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">websocket</span><span class="p">:</span> <span class="n">WebSocketServerProtocol</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">websocket</span><span class="p">:</span> <span class="n">WebSocketServerProtocol</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="c1"># Register client</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">websocket</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Client connected: </span><span class="si">{</span><span class="n">websocket</span><span class="o">.</span><span class="n">remote_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1683,7 +1781,7 @@
                 <span class="k">if</span> <span class="n">websocket</span> <span class="ow">in</span> <span class="n">subscribers</span><span class="p">:</span>
                     <span class="n">subscribers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">websocket</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
         <span class="n">block_hash</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">hex</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -1711,7 +1809,7 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error handling block: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
         <span class="n">txid</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">hex</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -1757,7 +1855,7 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error handling transaction: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">update_mempool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">update_mempool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># Get mempool info</span>
             <span class="n">mempool</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rpc_client</span><span class="o">.</span><span class="n">getmempoolinfo</span><span class="p">()</span>
@@ -1778,7 +1876,7 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error updating mempool: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
         <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">:</span>
             <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">subscribers</span><span class="p">:</span>
@@ -1788,7 +1886,7 @@
                     <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span>
                 <span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">server</span> <span class="o">=</span> <span class="n">CustomWebSocketServer</span><span class="p">()</span>
 
     <span class="k">try</span><span class="p">:</span>
@@ -1817,8 +1915,8 @@ rpcallowip=127.0.0.1
 </code></pre></div>
 <h3 id="environment-variables-for-credentials">Environment Variables for Credentials<a class="headerlink" href="#environment-variables-for-credentials" title="Permanent link">&para;</a></h3>
 <p>Use environment variables for RPC credentials instead of hardcoding them:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Get credentials from environment variables</span>
 <span class="n">rpcuser</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EVRMORE_RPC_USER&quot;</span><span class="p">)</span>
@@ -1829,16 +1927,16 @@ rpcallowip=127.0.0.1
 </code></pre></div>
 <h3 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h3>
 <p>Implement rate limiting to prevent overloading the node:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
-<span class="k">class</span> <span class="nc">RateLimitedClient</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_calls_per_second</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RateLimitedClient</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_calls_per_second</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_calls_per_second</span> <span class="o">=</span> <span class="n">max_calls_per_second</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">call_times</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">_check_rate_limit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_rate_limit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if we&#39;re exceeding the rate limit and wait if necessary.&quot;&quot;&quot;</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
@@ -1855,11 +1953,11 @@ rpcallowip=127.0.0.1
         <span class="c1"># Record this call</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">call_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Forward method calls to the underlying client with rate limiting.&quot;&quot;&quot;</span>
         <span class="n">method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_rate_limit</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
@@ -1872,8 +1970,8 @@ rpcallowip=127.0.0.1
 <h2 id="debugging-and-troubleshooting">Debugging and Troubleshooting<a class="headerlink" href="#debugging-and-troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h3>
 <p>Set up logging to help with debugging:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span><span class="p">,</span> <span class="n">EvrmoreRPCError</span>
 
 <span class="c1"># Configure logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
@@ -1904,8 +2002,8 @@ rpcallowip=127.0.0.1
 </code></pre></div>
 <h3 id="verbose-mode">Verbose Mode<a class="headerlink" href="#verbose-mode" title="Permanent link">&para;</a></h3>
 <p>Enable verbose mode to see more details about RPC calls:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Configure logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
@@ -1940,7 +2038,7 @@ rpcallowip=127.0.0.1
 <li>Increase the timeout value when creating the client</li>
 <li>Consider using a more powerful machine for the node</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Create client with increased timeout</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>  <span class="c1"># 60 seconds timeout</span>
@@ -2027,10 +2125,10 @@ rpcallowip=127.0.0.1
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "toc.follow", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

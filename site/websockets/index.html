@@ -15,10 +15,14 @@
         <link rel="canonical" href="https://manticoretechnology.github.io/evrmore-rpc/websockets/">
       
       
+        <link rel="prev" href="../zmq/">
+      
+      
+        <link rel="next" href="../models/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
@@ -209,12 +213,16 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../sync_api/" class="md-tabs__link">
           
+  
+    
   
   API Reference
 
@@ -252,6 +260,23 @@
     
   
   Advanced Usage
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../development/" class="md-tabs__link">
+        
+  
+    
+  
+  Development
 
       </a>
     </li>
@@ -328,27 +353,42 @@
       
   
   
+    
   
   
+  
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
+    
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -360,7 +400,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -406,6 +446,379 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZMQ Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    WebSockets Support
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    WebSockets Support
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebSocket Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebSocket Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-stopping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting and Stopping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebSocket Client
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebSocket Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-and-disconnecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting and Disconnecting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribing-to-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscribing to Topics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receiving-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receiving Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-iterator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Async Iterator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket-message-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebSocket Message Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebSocket Message Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-to-client-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server to Client Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Server to Client Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#block-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mempool-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mempool Messages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-to-server-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client to Server Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client to Server Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subscribe-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscribe Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsubscribe-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unsubscribe Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Messages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-message-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Message Handlers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-web-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Web Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-websocket-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom WebSocket Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -473,6 +886,27 @@
   
   <span class="md-ellipsis">
     Advanced Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
     
   </span>
   
@@ -823,12 +1257,12 @@
 <h2 id="websocket-server">WebSocket Server<a class="headerlink" href="#websocket-server" title="Permanent link">&para;</a></h2>
 <p>The <code>EvrmoreWebSocketServer</code> class provides a WebSocket server that can broadcast blockchain events to connected clients.</p>
 <h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create RPC client</span>
     <span class="n">rpc_client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
 
@@ -860,9 +1294,9 @@
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
 <h3 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
 
 <span class="c1"># Create clients</span>
 <span class="n">rpc_client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
@@ -895,12 +1329,12 @@
 </ul>
 <h3 id="starting-and-stopping">Starting and Stopping<a class="headerlink" href="#starting-and-stopping" title="Permanent link">&para;</a></h3>
 <p>The <code>EvrmoreWebSocketServer</code> class provides methods for starting and stopping the server:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create clients</span>
     <span class="n">rpc_client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
     <span class="n">zmq_client</span> <span class="o">=</span> <span class="n">EvrmoreZMQClient</span><span class="p">()</span>
@@ -927,10 +1361,10 @@
 <h2 id="websocket-client">WebSocket Client<a class="headerlink" href="#websocket-client" title="Permanent link">&para;</a></h2>
 <p>The <code>EvrmoreWebSocketClient</code> class provides a WebSocket client that can connect to an <code>EvrmoreWebSocketServer</code> and receive real-time blockchain events.</p>
 <h3 id="basic-usage_1">Basic Usage<a class="headerlink" href="#basic-usage_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a WebSocket client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreWebSocketClient</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8765&quot;</span><span class="p">)</span>
 
@@ -958,7 +1392,7 @@
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
 <h3 id="initialization_1">Initialization<a class="headerlink" href="#initialization_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
 <span class="c1"># Create a client with default settings</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreWebSocketClient</span><span class="p">()</span>
@@ -978,10 +1412,10 @@
 </ul>
 <h3 id="connecting-and-disconnecting">Connecting and Disconnecting<a class="headerlink" href="#connecting-and-disconnecting" title="Permanent link">&para;</a></h3>
 <p>The <code>EvrmoreWebSocketClient</code> class provides methods for connecting to and disconnecting from a WebSocket server:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreWebSocketClient</span><span class="p">()</span>
 
@@ -1000,10 +1434,10 @@
 </code></pre></div>
 <h3 id="subscribing-to-topics">Subscribing to Topics<a class="headerlink" href="#subscribing-to-topics" title="Permanent link">&para;</a></h3>
 <p>The <code>EvrmoreWebSocketClient</code> class provides methods for subscribing to and unsubscribing from topics:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreWebSocketClient</span><span class="p">()</span>
 
@@ -1035,10 +1469,10 @@
 </code></pre></div>
 <h3 id="receiving-messages">Receiving Messages<a class="headerlink" href="#receiving-messages" title="Permanent link">&para;</a></h3>
 <p>The <code>EvrmoreWebSocketClient</code> class provides methods for receiving messages:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreWebSocketClient</span><span class="p">()</span>
 
@@ -1069,10 +1503,10 @@
 </code></pre></div>
 <h3 id="async-iterator">Async Iterator<a class="headerlink" href="#async-iterator" title="Permanent link">&para;</a></h3>
 <p>The <code>EvrmoreWebSocketClient</code> class also supports the async iterator protocol, which makes it easy to process messages in a loop:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreWebSocketClient</span><span class="p">()</span>
 
@@ -1195,29 +1629,29 @@
 <h2 id="advanced-usage">Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
 <h3 id="custom-message-handlers">Custom Message Handlers<a class="headerlink" href="#custom-message-handlers" title="Permanent link">&para;</a></h3>
 <p>You can create custom message handlers for the WebSocket client:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
-<span class="k">class</span> <span class="nc">CustomWebSocketClient</span><span class="p">(</span><span class="n">EvrmoreWebSocketClient</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomWebSocketClient</span><span class="p">(</span><span class="n">EvrmoreWebSocketClient</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">block_count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tx_count</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_data</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_data</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle a block message.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">block_count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New block: </span><span class="si">{</span><span class="n">block_data</span><span class="o">.</span><span class="n">hash</span><span class="si">}</span><span class="s2"> (height: </span><span class="si">{</span><span class="n">block_data</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total blocks received: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">block_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle a transaction message.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tx_count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New transaction: </span><span class="si">{</span><span class="n">tx_data</span><span class="o">.</span><span class="n">txid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total transactions received: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tx_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">process_messages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_messages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Process messages from the server.&quot;&quot;&quot;</span>
         <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;block&quot;</span><span class="p">:</span>
@@ -1225,7 +1659,7 @@
             <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;transaction&quot;</span><span class="p">:</span>
                 <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_transaction</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a custom client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">CustomWebSocketClient</span><span class="p">()</span>
 
@@ -1248,10 +1682,10 @@
 </code></pre></div>
 <h3 id="integration-with-web-frameworks">Integration with Web Frameworks<a class="headerlink" href="#integration-with-web-frameworks" title="Permanent link">&para;</a></h3>
 <p>The WebSocket client can be integrated with web frameworks like FastAPI:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">WebSocket</span><span class="p">,</span> <span class="n">WebSocketDisconnect</span>
-<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">WebSocket</span><span class="p">,</span> <span class="n">WebSocketDisconnect</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.responses</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTMLResponse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
@@ -1279,11 +1713,11 @@
 <span class="s2">&quot;&quot;&quot;</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">get</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">websocket</span><span class="p">(</span><span class="s2">&quot;/ws&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">websocket_endpoint</span><span class="p">(</span><span class="n">websocket</span><span class="p">:</span> <span class="n">WebSocket</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">websocket_endpoint</span><span class="p">(</span><span class="n">websocket</span><span class="p">:</span> <span class="n">WebSocket</span><span class="p">):</span>
     <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
 
     <span class="c1"># Create a WebSocket client to connect to the Evrmore WebSocket server</span>
@@ -1556,10 +1990,10 @@ finally:
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "toc.follow", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

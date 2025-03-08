@@ -15,14 +15,14 @@
         <link rel="canonical" href="https://manticoretechnology.github.io/evrmore-rpc/models/">
       
       
-        <link rel="prev" href="../async_api/">
+        <link rel="prev" href="../websockets/">
       
       
         <link rel="next" href="../examples/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
@@ -222,6 +222,8 @@
         <a href="../sync_api/" class="md-tabs__link">
           
   
+    
+  
   API Reference
 
         </a>
@@ -258,6 +260,23 @@
     
   
   Advanced Usage
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../development/" class="md-tabs__link">
+        
+  
+    
+  
+  Development
 
       </a>
     </li>
@@ -340,6 +359,18 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
       
         
@@ -410,6 +441,50 @@
   
   <span class="md-ellipsis">
     Asynchronous API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZMQ Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websockets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebSockets Support
     
   </span>
   
@@ -805,6 +880,27 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1129,7 +1225,7 @@
 <p>The base models are defined in the <code>evrmore_rpc.models.base</code> module.</p>
 <h3 id="amount">Amount<a class="headerlink" href="#amount" title="Permanent link">&para;</a></h3>
 <p>The <code>Amount</code> model represents a monetary amount in the Evrmore blockchain.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.models.base</span> <span class="kn">import</span> <span class="n">Amount</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.models.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Amount</span>
 
 <span class="c1"># Create an amount</span>
 <span class="n">amount</span> <span class="o">=</span> <span class="n">Amount</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.23456789</span><span class="p">)</span>
@@ -1141,7 +1237,7 @@
 </code></pre></div>
 <h3 id="address">Address<a class="headerlink" href="#address" title="Permanent link">&para;</a></h3>
 <p>The <code>Address</code> model represents an Evrmore address.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.models.base</span> <span class="kn">import</span> <span class="n">Address</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.models.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Address</span>
 
 <span class="c1"># Create an address</span>
 <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;EVRxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span><span class="p">)</span>
@@ -1152,7 +1248,7 @@
 </code></pre></div>
 <h3 id="asset">Asset<a class="headerlink" href="#asset" title="Permanent link">&para;</a></h3>
 <p>The <code>Asset</code> model represents an Evrmore asset.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.models.base</span> <span class="kn">import</span> <span class="n">Asset</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.models.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Asset</span>
 
 <span class="c1"># Create an asset</span>
 <span class="n">asset</span> <span class="o">=</span> <span class="n">Asset</span><span class="p">(</span>
@@ -1172,7 +1268,7 @@
 </code></pre></div>
 <h3 id="transaction">Transaction<a class="headerlink" href="#transaction" title="Permanent link">&para;</a></h3>
 <p>The <code>Transaction</code> model represents a transaction in the Evrmore blockchain.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.models.base</span> <span class="kn">import</span> <span class="n">Transaction</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.models.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transaction</span>
 
 <span class="c1"># Create a transaction</span>
 <span class="n">transaction</span> <span class="o">=</span> <span class="n">Transaction</span><span class="p">(</span>
@@ -1199,7 +1295,7 @@
 </code></pre></div>
 <h3 id="block">Block<a class="headerlink" href="#block" title="Permanent link">&para;</a></h3>
 <p>The <code>Block</code> model represents a block in the Evrmore blockchain.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.models.base</span> <span class="kn">import</span> <span class="n">Block</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.models.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Block</span>
 
 <span class="c1"># Create a block</span>
 <span class="n">block</span> <span class="o">=</span> <span class="n">Block</span><span class="p">(</span>
@@ -1231,7 +1327,7 @@
 </code></pre></div>
 <h3 id="rpcresponse">RPCResponse<a class="headerlink" href="#rpcresponse" title="Permanent link">&para;</a></h3>
 <p>The <code>RPCResponse</code> model represents a response from the Evrmore RPC API.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.models.base</span> <span class="kn">import</span> <span class="n">RPCResponse</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.models.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">RPCResponse</span>
 
 <span class="c1"># Create a response</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">RPCResponse</span><span class="p">(</span>
@@ -1249,7 +1345,7 @@
 <p>The blockchain models are defined in the <code>evrmore_rpc.commands.blockchain</code> module.</p>
 <h3 id="blockchaininfo">BlockchainInfo<a class="headerlink" href="#blockchaininfo" title="Permanent link">&para;</a></h3>
 <p>The <code>BlockchainInfo</code> model represents information about the blockchain.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.blockchain</span> <span class="kn">import</span> <span class="n">BlockchainInfo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.blockchain</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlockchainInfo</span>
 
 <span class="c1"># Create blockchain info</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">BlockchainInfo</span><span class="p">(</span>
@@ -1275,7 +1371,7 @@
 </code></pre></div>
 <h3 id="blockheader">BlockHeader<a class="headerlink" href="#blockheader" title="Permanent link">&para;</a></h3>
 <p>The <code>BlockHeader</code> model represents a block header.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.blockchain</span> <span class="kn">import</span> <span class="n">BlockHeader</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.blockchain</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlockHeader</span>
 
 <span class="c1"># Create a block header</span>
 <span class="n">header</span> <span class="o">=</span> <span class="n">BlockHeader</span><span class="p">(</span>
@@ -1304,7 +1400,7 @@
 <p>The asset models are defined in the <code>evrmore_rpc.commands.assets</code> module.</p>
 <h3 id="assetinfo">AssetInfo<a class="headerlink" href="#assetinfo" title="Permanent link">&para;</a></h3>
 <p>The <code>AssetInfo</code> model represents information about an asset.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.assets</span> <span class="kn">import</span> <span class="n">AssetInfo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">AssetInfo</span>
 
 <span class="c1"># Create asset info</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">AssetInfo</span><span class="p">(</span>
@@ -1330,7 +1426,7 @@
 </code></pre></div>
 <h3 id="listassetsresult">ListAssetsResult<a class="headerlink" href="#listassetsresult" title="Permanent link">&para;</a></h3>
 <p>The <code>ListAssetsResult</code> model represents the result of the <code>listassets</code> command.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.assets</span> <span class="kn">import</span> <span class="n">ListAssetsResult</span><span class="p">,</span> <span class="n">AssetInfo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.assets</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListAssetsResult</span><span class="p">,</span> <span class="n">AssetInfo</span>
 
 <span class="c1"># Create a list assets result</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">ListAssetsResult</span><span class="p">(</span>
@@ -1350,7 +1446,7 @@
 <p>The network models are defined in the <code>evrmore_rpc.commands.network</code> module.</p>
 <h3 id="networkinfo">NetworkInfo<a class="headerlink" href="#networkinfo" title="Permanent link">&para;</a></h3>
 <p>The <code>NetworkInfo</code> model represents information about the network.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.network</span> <span class="kn">import</span> <span class="n">NetworkInfo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.network</span><span class="w"> </span><span class="kn">import</span> <span class="n">NetworkInfo</span>
 
 <span class="c1"># Create network info</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">NetworkInfo</span><span class="p">(</span>
@@ -1376,7 +1472,7 @@
 </code></pre></div>
 <h3 id="peerinfo">PeerInfo<a class="headerlink" href="#peerinfo" title="Permanent link">&para;</a></h3>
 <p>The <code>PeerInfo</code> model represents information about a peer.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.network</span> <span class="kn">import</span> <span class="n">PeerInfo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.network</span><span class="w"> </span><span class="kn">import</span> <span class="n">PeerInfo</span>
 
 <span class="c1"># Create peer info</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">PeerInfo</span><span class="p">(</span>
@@ -1417,7 +1513,7 @@
 <p>The mining models are defined in the <code>evrmore_rpc.commands.mining</code> module.</p>
 <h3 id="mininginfo">MiningInfo<a class="headerlink" href="#mininginfo" title="Permanent link">&para;</a></h3>
 <p>The <code>MiningInfo</code> model represents information about mining.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.mining</span> <span class="kn">import</span> <span class="n">MiningInfo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.mining</span><span class="w"> </span><span class="kn">import</span> <span class="n">MiningInfo</span>
 
 <span class="c1"># Create mining info</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">MiningInfo</span><span class="p">(</span>
@@ -1440,7 +1536,7 @@
 <p>The utility models are defined in the <code>evrmore_rpc.commands.util</code> module.</p>
 <h3 id="utilinfo">UtilInfo<a class="headerlink" href="#utilinfo" title="Permanent link">&para;</a></h3>
 <p>The <code>UtilInfo</code> model represents utility information.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.commands.util</span> <span class="kn">import</span> <span class="n">UtilInfo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.commands.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">UtilInfo</span>
 
 <span class="c1"># Create utility info</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">UtilInfo</span><span class="p">(</span>
@@ -1471,7 +1567,7 @@
 <p>The WebSocket models are defined in the <code>evrmore_rpc.websockets.models</code> module.</p>
 <h3 id="websocketmessage">WebSocketMessage<a class="headerlink" href="#websocketmessage" title="Permanent link">&para;</a></h3>
 <p>The <code>WebSocketMessage</code> model represents a WebSocket message.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.websockets.models</span> <span class="kn">import</span> <span class="n">WebSocketMessage</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebSocketMessage</span>
 
 <span class="c1"># Create a WebSocket message</span>
 <span class="n">message</span> <span class="o">=</span> <span class="n">WebSocketMessage</span><span class="p">(</span>
@@ -1490,7 +1586,7 @@
 </code></pre></div>
 <h3 id="websocketsubscription">WebSocketSubscription<a class="headerlink" href="#websocketsubscription" title="Permanent link">&para;</a></h3>
 <p>The <code>WebSocketSubscription</code> model represents a WebSocket subscription.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.websockets.models</span> <span class="kn">import</span> <span class="n">WebSocketSubscription</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebSocketSubscription</span>
 
 <span class="c1"># Create a WebSocket subscription</span>
 <span class="n">subscription</span> <span class="o">=</span> <span class="n">WebSocketSubscription</span><span class="p">(</span>
@@ -1506,8 +1602,8 @@
 <p>The ZMQ models are defined in the <code>evrmore_rpc.zmq.models</code> module.</p>
 <h3 id="zmqnotification">ZMQNotification<a class="headerlink" href="#zmqnotification" title="Permanent link">&para;</a></h3>
 <p>The <code>ZMQNotification</code> model represents a ZMQ notification.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc.zmq.models</span> <span class="kn">import</span> <span class="n">ZMQNotification</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq.client</span> <span class="kn">import</span> <span class="n">ZMQTopic</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZMQNotification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZMQTopic</span>
 
 <span class="c1"># Create a ZMQ notification</span>
 <span class="n">notification</span> <span class="o">=</span> <span class="n">ZMQNotification</span><span class="p">(</span>
@@ -1604,10 +1700,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "toc.follow", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

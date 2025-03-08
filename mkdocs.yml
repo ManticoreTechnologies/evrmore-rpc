@@ -17,6 +17,9 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - toc.follow
     - search.highlight
     - search.share
     - content.code.copy
@@ -39,9 +42,12 @@ nav:
   - API Reference:
     - Synchronous API: sync_api.md
     - Asynchronous API: async_api.md
+    - ZMQ Support: zmq.md
+    - WebSockets Support: websockets.md
     - Models: models.md
   - Examples: examples.md
   - Advanced Usage: advanced.md
+  - Development: development.md
 
 plugins:
   - search

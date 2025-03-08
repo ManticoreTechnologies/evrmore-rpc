@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
@@ -963,7 +963,7 @@
 <h2 id="basic-rpc-usage">Basic RPC Usage<a class="headerlink" href="#basic-rpc-usage" title="Permanent link">&para;</a></h2>
 <p>The basic RPC usage examples demonstrate how to use the synchronous RPC client to interact with the Evrmore blockchain.</p>
 <h3 id="get-blockchain-info">Get Blockchain Info<a class="headerlink" href="#get-blockchain-info" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Create a client</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
@@ -975,7 +975,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Difficulty: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">difficulty</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="get-block-data">Get Block Data<a class="headerlink" href="#get-block-data" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Create a client</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
@@ -988,7 +988,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Block #1 transactions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">tx</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="list-assets">List Assets<a class="headerlink" href="#list-assets" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
 <span class="c1"># Create a client</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
@@ -1004,10 +1004,10 @@
 <h2 id="asynchronous-rpc-usage">Asynchronous RPC Usage<a class="headerlink" href="#asynchronous-rpc-usage" title="Permanent link">&para;</a></h2>
 <p>The asynchronous RPC usage examples demonstrate how to use the asynchronous RPC client to interact with the Evrmore blockchain.</p>
 <h3 id="get-blockchain-info_1">Get Blockchain Info<a class="headerlink" href="#get-blockchain-info_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a client</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="c1"># Get blockchain info</span>
@@ -1020,10 +1020,10 @@
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
 <h3 id="concurrent-execution">Concurrent Execution<a class="headerlink" href="#concurrent-execution" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreAsyncRPCClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a client</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">EvrmoreAsyncRPCClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="c1"># Execute multiple commands concurrently</span>
@@ -1047,16 +1047,16 @@
 <h2 id="zmq-notifications">ZMQ Notifications<a class="headerlink" href="#zmq-notifications" title="Permanent link">&para;</a></h2>
 <p>The ZMQ notifications examples demonstrate how to use the ZMQ client to receive real-time notifications from the Evrmore blockchain.</p>
 <h3 id="block-and-transaction-notifications">Block and Transaction Notifications<a class="headerlink" href="#block-and-transaction-notifications" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">handle_block</span><span class="p">(</span><span class="n">notification</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_block</span><span class="p">(</span><span class="n">notification</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New block: </span><span class="si">{</span><span class="n">notification</span><span class="o">.</span><span class="n">hex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">handle_transaction</span><span class="p">(</span><span class="n">notification</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_transaction</span><span class="p">(</span><span class="n">notification</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New transaction: </span><span class="si">{</span><span class="n">notification</span><span class="o">.</span><span class="n">hex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a ZMQ client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreZMQClient</span><span class="p">(</span>
         <span class="n">address</span><span class="o">=</span><span class="s2">&quot;tcp://127.0.0.1:28332&quot;</span><span class="p">,</span>
@@ -1081,11 +1081,11 @@
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
 <h3 id="transaction-analysis">Transaction Analysis<a class="headerlink" href="#transaction-analysis" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span><span class="p">,</span> <span class="n">ZMQTopic</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">handle_transaction</span><span class="p">(</span><span class="n">notification</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_transaction</span><span class="p">(</span><span class="n">notification</span><span class="p">):</span>
     <span class="n">txid</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">hex</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New transaction: </span><span class="si">{</span><span class="n">txid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -1104,7 +1104,7 @@
             <span class="n">asset</span> <span class="o">=</span> <span class="n">vout</span><span class="p">[</span><span class="s2">&quot;scriptPubKey&quot;</span><span class="p">][</span><span class="s2">&quot;asset&quot;</span><span class="p">]</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asset transfer: </span><span class="si">{</span><span class="n">asset</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">asset</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a ZMQ client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreZMQClient</span><span class="p">(</span>
         <span class="n">address</span><span class="o">=</span><span class="s2">&quot;tcp://127.0.0.1:28332&quot;</span><span class="p">,</span>
@@ -1130,10 +1130,10 @@
 <h2 id="websockets-support">WebSockets Support<a class="headerlink" href="#websockets-support" title="Permanent link">&para;</a></h2>
 <p>The WebSockets examples demonstrate how to use the WebSockets client and server to receive real-time notifications from the Evrmore blockchain.</p>
 <h3 id="websocket-client">WebSocket Client<a class="headerlink" href="#websocket-client" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketClient</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create a WebSocket client</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreWebSocketClient</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8765&quot;</span><span class="p">)</span>
 
@@ -1161,12 +1161,12 @@
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
 <h3 id="websocket-server">WebSocket Server<a class="headerlink" href="#websocket-server" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.websockets</span> <span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.websockets</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreWebSocketServer</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create RPC client</span>
     <span class="n">rpc_client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
 
@@ -1202,30 +1202,30 @@
 <h2 id="asset-swap-platform">Asset Swap Platform<a class="headerlink" href="#asset-swap-platform" title="Permanent link">&para;</a></h2>
 <p>The asset swap platform example demonstrates how to build a decentralized exchange for Evrmore assets using the <code>evrmore-rpc</code> package.</p>
 <h3 id="simple-swap">Simple Swap<a class="headerlink" href="#simple-swap" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
 
-<span class="k">class</span> <span class="nc">AssetSwap</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AssetSwap</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">list_my_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_my_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;List assets in my wallet.&quot;&quot;&quot;</span>
         <span class="n">assets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">listmyassets</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">assets</span>
 
-    <span class="k">def</span> <span class="nf">create_swap_offer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset_offered</span><span class="p">,</span> <span class="n">amount_offered</span><span class="p">,</span> <span class="n">asset_wanted</span><span class="p">,</span> <span class="n">amount_wanted</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_swap_offer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset_offered</span><span class="p">,</span> <span class="n">amount_offered</span><span class="p">,</span> <span class="n">asset_wanted</span><span class="p">,</span> <span class="n">amount_wanted</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a swap offer.&quot;&quot;&quot;</span>
         <span class="c1"># In a real implementation, this would create a transaction or smart contract</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating swap offer: </span><span class="si">{</span><span class="n">amount_offered</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">asset_offered</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">amount_wanted</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">asset_wanted</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">execute_swap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offer_id</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_swap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offer_id</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute a swap offer.&quot;&quot;&quot;</span>
         <span class="c1"># In a real implementation, this would execute the transaction or smart contract</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Executing swap offer </span><span class="si">{</span><span class="n">offer_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">swap</span> <span class="o">=</span> <span class="n">AssetSwap</span><span class="p">()</span>
 
     <span class="c1"># List my assets</span>
@@ -1244,19 +1244,19 @@
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
 <h3 id="real-time-swap">Real-time Swap<a class="headerlink" href="#real-time-swap" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
 
-<span class="k">class</span> <span class="nc">RealTimeAssetSwap</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RealTimeAssetSwap</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rpc_client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span> <span class="o">=</span> <span class="n">EvrmoreZMQClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">offers</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the swap platform.&quot;&quot;&quot;</span>
         <span class="c1"># Register ZMQ handlers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">on_transaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_transaction</span><span class="p">)</span>
@@ -1264,11 +1264,11 @@
         <span class="c1"># Start ZMQ client</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop the swap platform.&quot;&quot;&quot;</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle a new transaction.&quot;&quot;&quot;</span>
         <span class="n">txid</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">hex</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New transaction: </span><span class="si">{</span><span class="n">txid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1285,7 +1285,7 @@
                 <span class="c1"># Check if this transfer matches any of our offers</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">check_for_matching_offers</span><span class="p">(</span><span class="n">asset</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">asset</span><span class="p">[</span><span class="s2">&quot;amount&quot;</span><span class="p">])))</span>
 
-    <span class="k">def</span> <span class="nf">check_for_matching_offers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset_name</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_for_matching_offers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset_name</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if an asset transfer matches any of our offers.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">offer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">offers</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">offer</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;open&quot;</span> <span class="ow">and</span> <span class="n">offer</span><span class="p">[</span><span class="s2">&quot;asset_wanted&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">asset_name</span> <span class="ow">and</span> <span class="n">offer</span><span class="p">[</span><span class="s2">&quot;amount_wanted&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">amount</span><span class="p">:</span>
@@ -1294,7 +1294,7 @@
                 <span class="c1"># Execute the swap</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">execute_swap</span><span class="p">(</span><span class="n">offer</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">create_swap_offer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset_offered</span><span class="p">,</span> <span class="n">amount_offered</span><span class="p">,</span> <span class="n">asset_wanted</span><span class="p">,</span> <span class="n">amount_wanted</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_swap_offer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset_offered</span><span class="p">,</span> <span class="n">amount_offered</span><span class="p">,</span> <span class="n">asset_wanted</span><span class="p">,</span> <span class="n">amount_wanted</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a swap offer.&quot;&quot;&quot;</span>
         <span class="n">offer_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;offer_</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">offer</span> <span class="o">=</span> <span class="p">{</span>
@@ -1309,7 +1309,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created swap offer: </span><span class="si">{</span><span class="n">offer_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">offer_id</span>
 
-    <span class="k">def</span> <span class="nf">execute_swap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offer_id</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_swap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offer_id</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute a swap offer.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">offer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">offers</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">offer</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">offer_id</span> <span class="ow">and</span> <span class="n">offer</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;open&quot;</span><span class="p">:</span>
@@ -1323,7 +1323,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Swap offer </span><span class="si">{</span><span class="n">offer_id</span><span class="si">}</span><span class="s2"> not found or not open&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">swap</span> <span class="o">=</span> <span class="n">RealTimeAssetSwap</span><span class="p">()</span>
 
     <span class="c1"># Start the swap platform</span>
@@ -1344,19 +1344,19 @@
 </code></pre></div>
 <h2 id="balance-tracker">Balance Tracker<a class="headerlink" href="#balance-tracker" title="Permanent link">&para;</a></h2>
 <p>The balance tracker example demonstrates how to track asset balances in real-time using the <code>evrmore-rpc</code> package.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc</span> <span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
-<span class="kn">from</span> <span class="nn">evrmore_rpc.zmq</span> <span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreRPCClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evrmore_rpc.zmq</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvrmoreZMQClient</span>
 
-<span class="k">class</span> <span class="nc">BalanceTracker</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BalanceTracker</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rpc_client</span> <span class="o">=</span> <span class="n">EvrmoreRPCClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span> <span class="o">=</span> <span class="n">EvrmoreZMQClient</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">balances</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the balance tracker.&quot;&quot;&quot;</span>
         <span class="c1"># Register ZMQ handlers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">on_transaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_transaction</span><span class="p">)</span>
@@ -1364,11 +1364,11 @@
         <span class="c1"># Start ZMQ client</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop the balance tracker.&quot;&quot;&quot;</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmq_client</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">add_address</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_address</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an address to track.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
 
@@ -1397,7 +1397,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  EVR balance: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balances</span><span class="p">[</span><span class="n">address</span><span class="p">][</span><span class="s1">&#39;EVR&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Asset balances: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balances</span><span class="p">[</span><span class="n">address</span><span class="p">][</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notification</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle a new transaction.&quot;&quot;&quot;</span>
         <span class="n">txid</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">hex</span>
 
@@ -1451,7 +1451,7 @@
                                     <span class="bp">self</span><span class="o">.</span><span class="n">balances</span><span class="p">[</span><span class="n">address</span><span class="p">][</span><span class="s2">&quot;assets&quot;</span><span class="p">][</span><span class="n">asset_name</span><span class="p">]</span> <span class="o">-=</span> <span class="n">asset_amount</span>
                                     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Updated asset balance for </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">asset_name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balances</span><span class="p">[</span><span class="n">address</span><span class="p">][</span><span class="s1">&#39;assets&#39;</span><span class="p">][</span><span class="n">asset_name</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">tracker</span> <span class="o">=</span> <span class="n">BalanceTracker</span><span class="p">()</span>
 
     <span class="c1"># Start the balance tracker</span>
@@ -1825,7 +1825,7 @@ with Live(monitor.render_dashboard(), refresh_per_second=1) as live:
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

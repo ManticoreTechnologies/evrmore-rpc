@@ -12,22 +12,24 @@
         <meta name="author" content="Manticore Technology">
       
       
+        <link rel="canonical" href="https://manticoretechnology.github.io/evrmore-rpc/development/">
       
       
       
-      <link rel="icon" href="/evrmore-rpc/assets/images/favicon.png">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
-        <title>Evrmore RPC</title>
+        <title>Development Guide - Evrmore RPC</title>
       
     
     
-      <link rel="stylesheet" href="/evrmore-rpc/assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="/evrmore-rpc/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="/evrmore-rpc/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("/evrmore-rpc/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#development-guide" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/evrmore-rpc/." title="Evrmore RPC" class="md-header__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
+    <a href=".." title="Evrmore RPC" class="md-header__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -101,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Development Guide
             
           </span>
         </div>
@@ -187,7 +194,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/evrmore-rpc/." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
     
@@ -206,7 +213,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/evrmore-rpc/sync_api/" class="md-tabs__link">
+        <a href="../sync_api/" class="md-tabs__link">
           
   
   API Reference
@@ -222,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/evrmore-rpc/examples/" class="md-tabs__link">
+      <a href="../examples/" class="md-tabs__link">
         
   
     
@@ -239,7 +246,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/evrmore-rpc/advanced/" class="md-tabs__link">
+      <a href="../advanced/" class="md-tabs__link">
         
   
     
@@ -273,7 +280,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/evrmore-rpc/." title="Evrmore RPC" class="md-nav__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
+    <a href=".." title="Evrmore RPC" class="md-nav__button md-logo" aria-label="Evrmore RPC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -303,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -367,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/sync_api/" class="md-nav__link">
+      <a href="../sync_api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -389,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/async_api/" class="md-nav__link">
+      <a href="../async_api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/models/" class="md-nav__link">
+      <a href="../models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/examples/" class="md-nav__link">
+      <a href="../examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/evrmore-rpc/advanced/" class="md-nav__link">
+      <a href="../advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,6 +499,88 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Development Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Style
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribution-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contribution Guidelines
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -503,8 +592,135 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="development-guide">Development Guide<a class="headerlink" href="#development-guide" title="Permanent link">&para;</a></h1>
+<p>This guide provides information for developers who want to contribute to the Evrmore RPC library.</p>
+<h2 id="setting-up-development-environment">Setting Up Development Environment<a class="headerlink" href="#setting-up-development-environment" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone the repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ManticoreTechnology/evrmore-rpc.git
+<span class="nb">cd</span><span class="w"> </span>evrmore-rpc
+
+<span class="c1"># Create a virtual environment</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: venv\Scripts\activate</span>
+
+<span class="c1"># Install development dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div>
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<p>The project follows a standard Python package structure:</p>
+<div class="highlight"><pre><span></span><code>evrmore-rpc/
+├── docs/               # Documentation files
+├── examples/           # Example scripts
+├── scripts/            # Utility scripts
+├── src/                # Source code
+│   └── evrmore_rpc/    # Main package
+│       ├── models/     # Data models
+│       ├── zmq/        # ZMQ client
+│       ├── __init__.py # Package entry point
+│       ├── client.py   # Main client implementation
+│       ├── client.pyi  # Type stub file for IDE support
+│       ├── config.py   # Configuration handling
+│       └── utils.py    # Utility functions
+├── tests/              # Test files
+├── .gitignore          # Git ignore file
+├── LICENSE             # License file
+├── MANIFEST.in         # Package manifest
+├── mkdocs.yml          # Documentation configuration
+├── pyproject.toml      # Project configuration
+├── README.md           # Project readme
+├── requirements.txt    # Dependencies
+└── setup.py            # Setup script
+</code></pre></div>
+<h2 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run all tests</span>
+pytest
+
+<span class="c1"># Run specific tests</span>
+pytest<span class="w"> </span>tests/test_client.py
+
+<span class="c1"># Run tests with coverage</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>evrmore_rpc
+</code></pre></div>
+<h2 id="building-documentation">Building Documentation<a class="headerlink" href="#building-documentation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build documentation</span>
+python<span class="w"> </span>scripts/build_docs.py
+
+<span class="c1"># Build and deploy documentation</span>
+python<span class="w"> </span>scripts/build_docs.py<span class="w"> </span>--deploy
+</code></pre></div>
+<h2 id="running-examples">Running Examples<a class="headerlink" href="#running-examples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># List available examples</span>
+python<span class="w"> </span>scripts/run_examples.py<span class="w"> </span>--list
+
+<span class="c1"># Run a basic example</span>
+python<span class="w"> </span>scripts/run_examples.py<span class="w"> </span>super_simple
+
+<span class="c1"># Run an advanced example</span>
+python<span class="w"> </span>scripts/run_examples.py<span class="w"> </span>asset_monitor
+</code></pre></div>
+<h2 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
+<p>The project uses the following tools for code style:</p>
+<ul>
+<li><a href="https://black.readthedocs.io/">Black</a> for code formatting</li>
+<li><a href="https://pycqa.github.io/isort/">isort</a> for import sorting</li>
+<li><a href="https://mypy.readthedocs.io/">mypy</a> for type checking</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Format code</span>
+black<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>examples
+
+<span class="c1"># Sort imports</span>
+isort<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>examples
+
+<span class="c1"># Check types</span>
+mypy<span class="w"> </span>src
+</code></pre></div>
+<h2 id="publishing">Publishing<a class="headerlink" href="#publishing" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check readiness for publication</span>
+python<span class="w"> </span>scripts/check_publication.py
+
+<span class="c1"># Build package</span>
+python<span class="w"> </span>-m<span class="w"> </span>build
+
+<span class="c1"># Upload to PyPI</span>
+python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+</code></pre></div>
+<h2 id="contribution-guidelines">Contribution Guidelines<a class="headerlink" href="#contribution-guidelines" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch</li>
+<li>Make your changes</li>
+<li>Run tests to ensure they pass</li>
+<li>Update documentation if needed</li>
+<li>Submit a pull request</li>
+</ol>
+<p>Please follow these guidelines when contributing:</p>
+<ul>
+<li>Follow the existing code style</li>
+<li>Add tests for new features</li>
+<li>Update documentation for new features</li>
+<li>Keep commits focused and add descriptive commit messages</li>
+<li>Rebase your branch before submitting a pull request </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -574,10 +790,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/evrmore-rpc/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "/evrmore-rpc/assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/evrmore-rpc/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
